@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        android:checked="true"
+        android:color="@color/home"/>
+
+    <item
+        android:id="@+id/bell"
+        android:icon="@drawable/ic_bell"
+        android:title="Rings"
+        android:color="@color/home"/>
+
+     <item
+        android:id="@+id/upload"
+        android:icon="@drawable/ic_plus"
+        android:title="Upload"
+        android:color="@color/home"/>
+
+     <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        android:color="@color/home"/>
+
+     <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_user"
+        android:title="Profile"
+        android:color="@color/home"/>
+
+</menu>
