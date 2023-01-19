@@ -41,10 +41,11 @@ public class homeFragment extends Fragment {
 
 
         storyAdapter adapter = new storyAdapter(list,getContext());
-        storyRv.setAdapter(adapter);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         storyRv.setLayoutManager(layoutManager);
         storyRv.setNestedScrollingEnabled(false);
+         storyRv.setAdapter(adapter);
 
         return view;
     }
