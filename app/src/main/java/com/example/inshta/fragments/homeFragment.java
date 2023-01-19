@@ -44,7 +44,7 @@ public class homeFragment extends Fragment {
         storyRv.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         storyRv.setLayoutManager(layoutManager);
-        storyRv.setNestedScrollingEnabled(true);
+        storyRv.setNestedScrollingEnabled(false);
 
         return view;
     }
