@@ -1,4 +1,4 @@
-package com.example.inshta;
+package com.example.inshta.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.inshta.R;
 import com.example.inshta.databinding.ActivityHomeBinding;
 import com.example.inshta.fragments.bellFragment;
 import com.example.inshta.fragments.homeFragment;

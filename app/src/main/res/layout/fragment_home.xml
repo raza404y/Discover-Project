@@ -72,54 +72,40 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/roundedImageView"
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:animateLayoutChanges="true">
+
+                     <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/roundedImageView1"
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:src="@drawable/profile_image"
                         android:layout_marginTop="@dimen/_5sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:riv_corner_radius="@dimen/_15sdp" />
+                        android:src="@drawable/profile_image"
+                         app:riv_corner_radius="@dimen/_15sdp"
+                       />
 
 
-                    <View
+                     <View
                         android:id="@+id/view2"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_90sdp"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_88sdp"
+                         android:layout_gravity="center"
                         android:background="@drawable/view_bg"
-                        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
-                        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-                        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
-                        app:layout_constraintTop_toTopOf="@+id/roundedImageView" />
-
-                    <ImageView
+                        />
+                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
+                         android:layout_gravity="center"
                         android:src="@drawable/ic_baseline_add_circle_outline_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
-                        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-                        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
-                        app:layout_constraintTop_toTopOf="@+id/roundedImageView" />
+                       />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/storyRecyclerView"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        app:layout_constraintBottom_toBottomOf="@+id/view2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/view2"
-                        app:layout_constraintTop_toTopOf="@+id/roundedImageView" />
-
-                    <TextView
+                       <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/baloo_thambi"
@@ -127,13 +113,27 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/imageView"
-                        app:layout_constraintStart_toStartOf="@+id/imageView"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                           android:layout_gravity="center"
+                           android:layout_marginTop="@dimen/_25sdp"
+                         />
+
+                </FrameLayout>
 
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/storyRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_95sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        />
+
+
+
+
 
             </LinearLayout>
         </HorizontalScrollView>

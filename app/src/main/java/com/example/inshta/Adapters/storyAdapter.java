@@ -1,14 +1,15 @@
-package com.example.inshta;
+package com.example.inshta.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.inshta.R;
+import com.example.inshta.Models.storyModel;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;

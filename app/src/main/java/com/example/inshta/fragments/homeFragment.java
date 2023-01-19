@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.inshta.R;
-import com.example.inshta.storyAdapter;
-import com.example.inshta.storyModel;
+import com.example.inshta.Adapters.storyAdapter;
+import com.example.inshta.Models.storyModel;
 
 import java.util.ArrayList;
 
@@ -33,12 +33,12 @@ public class homeFragment extends Fragment {
         RecyclerView storyRv = view.findViewById(R.id.storyRecyclerView);
 
         ArrayList<storyModel> list = new ArrayList<>();
-                list.add(new storyModel(R.drawable.profile_image));
-                list.add(new storyModel(R.drawable.profile_image));
-                list.add(new storyModel(R.drawable.profile_image));
-                list.add(new storyModel(R.drawable.profile_image));
-                list.add(new storyModel(R.drawable.profile_image));
-                list.add(new storyModel(R.drawable.profile_image));
+                list.add(new storyModel(R.drawable.img));
+                list.add(new storyModel(R.drawable.img_1));
+                list.add(new storyModel(R.drawable.img_2));
+                list.add(new storyModel(R.drawable.img_3));
+                list.add(new storyModel(R.drawable.img_4));
+
 
         storyAdapter adapter = new storyAdapter(list,getContext());
         storyRv.setAdapter(adapter);

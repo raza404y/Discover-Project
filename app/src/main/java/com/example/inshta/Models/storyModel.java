@@ -1,4 +1,4 @@
-package com.example.inshta;
+package com.example.inshta.Models;
 
 public class storyModel {
     int story;
