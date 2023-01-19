@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,7 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
-            stroyImage = itemView.findViewById(R.id.storyImageView);
+           stroyImage = itemView.findViewById(R.id.storyImageView);
         }
     }
 
