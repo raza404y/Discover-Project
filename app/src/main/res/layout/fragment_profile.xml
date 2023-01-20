@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:diagonal="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:contentDescription="@string/app_name"
     tools:context=".fragments.profileFragment">
- <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile Fragment"
-        android:textSize="@dimen/_23sdp"
-        android:textColor="@color/black"
-        android:gravity="center"/>
-</FrameLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/roundedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_140sdp"
+            android:padding="@dimen/_4sdp"
+            android:scaleType="centerCrop"
+            android:src="#C8515050"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toTopOf="parent"
+            diagonal:riv_corner_radius="@dimen/_8sdp" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView2"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:src="@drawable/profile_image"
+                diagonal:civ_border_color="@color/white"
+                diagonal:civ_border_width="@dimen/_2sdp"
+                diagonal:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+                diagonal:layout_constraintEnd_toEndOf="parent"
+                diagonal:layout_constraintStart_toStartOf="parent"
+                diagonal:layout_constraintTop_toBottomOf="@+id/roundedImageView"
+                diagonal:layout_constraintVertical_bias="0.495" />
+
+            <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/profile_pic_upload_view"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            diagonal:layout_constraintEnd_toEndOf="@+id/imageView2"
+            diagonal:layout_constraintStart_toStartOf="@+id/imageView2"
+            diagonal:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/add_icon"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/circleImageView2"
+            diagonal:layout_constraintEnd_toEndOf="@+id/circleImageView2"
+            diagonal:layout_constraintHorizontal_bias="0.858"
+            diagonal:layout_constraintStart_toStartOf="@+id/circleImageView2"
+            android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+               android:text="M Raza"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold"
+                diagonal:layout_constraintEnd_toEndOf="@+id/circleImageView2"
+                diagonal:layout_constraintHorizontal_bias="0.285"
+                diagonal:layout_constraintStart_toStartOf="@+id/circleImageView2"
+                diagonal:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
+            
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:text="Hello my name is bill gates. I am the CEO and co founder of microsoft. And also the shareHolder in many other internet companies"
+                diagonal:layout_constraintEnd_toEndOf="@+id/textView2"
+                diagonal:layout_constraintStart_toStartOf="@+id/textView2"
+                diagonal:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:fontFamily="@font/baloo_thambi"
+                android:text="Followers."
+                android:layout_marginStart="@dimen/_16ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp"
+                diagonal:layout_constraintStart_toStartOf="parent"
+                diagonal:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo_thambi"
+                android:text="404m"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:textSize="@dimen/_16ssp"
+                diagonal:layout_constraintBottom_toBottomOf="@+id/textView4"
+                diagonal:layout_constraintStart_toEndOf="@+id/textView4"
+                diagonal:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/followersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                diagonal:layout_constraintEnd_toEndOf="parent"
+                diagonal:layout_constraintStart_toStartOf="parent"
+                diagonal:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/postProfileImage"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:src="@drawable/profile_image"
+        app:civ_border_color="@color/statusbarcolor"
+        app:civ_border_width="@dimen/_1sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/postDots"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_dots"
+        app:layout_constraintBottom_toBottomOf="@+id/postProfileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/postProfileImage"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <TextView
+        android:id="@+id/postUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bill Gates"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/postProfileImage"
+        app:layout_constraintEnd_toStartOf="@+id/postDots"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toEndOf="@+id/postProfileImage"
+        app:layout_constraintTop_toTopOf="@+id/postProfileImage"
+        app:layout_constraintVertical_bias="0.162" />
+
+
+    <TextView
+        android:id="@+id/postProfession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textSize="@dimen/_11ssp"
+        android:gravity="start"
+        android:text="Web developer"
+        app:layout_constraintStart_toStartOf="@+id/postUserName"
+        app:layout_constraintTop_toBottomOf="@+id/postUserName" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/postImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:scaleType="centerCrop"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/img_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postProfession"
+        app:riv_corner_radius="@dimen/_8sdp" />
+
+    <TextView
+        android:id="@+id/likesTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:drawableStart="@drawable/ic_heart"
+        android:drawablePadding="@dimen/_6sdp"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="345"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />
+
+    <TextView
+        android:id="@+id/commentsTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:drawableStart="@drawable/ic_comment"
+        android:drawablePadding="@dimen/_6sdp"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="123"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toStartOf="@+id/shareTV"
+        app:layout_constraintStart_toEndOf="@+id/likesTV"
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />
+
+    <TextView
+        android:id="@+id/shareTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_14ssp"
+        android:drawableStart="@drawable/ic_share"
+        android:drawablePadding="@dimen/_6sdp"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="7"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postImage" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/viewColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentsTV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
