@@ -10,22 +10,36 @@
     tools:context=".fragments.profileFragment">
 
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/roundedImageView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
-            android:padding="@dimen/_4sdp"
-            android:scaleType="centerCrop"
-            android:src="#C8515050"
-            diagonal:layout_constraintEnd_toEndOf="parent"
-            diagonal:layout_constraintStart_toStartOf="parent"
-            diagonal:layout_constraintTop_toTopOf="parent"
-            diagonal:riv_corner_radius="@dimen/_8sdp" />
 
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/roundedImageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:padding="@dimen/_4sdp"
+                android:scaleType="centerCrop"
+                android:src="#B5515050"
+                diagonal:layout_constraintEnd_toEndOf="parent"
+                diagonal:layout_constraintHorizontal_bias="0.0"
+                diagonal:layout_constraintStart_toStartOf="parent"
+                diagonal:layout_constraintTop_toTopOf="parent"
+                diagonal:riv_corner_radius="@dimen/_8sdp" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="Upload Cover"
+                android:textSize="@dimen/_15sdp"
+                diagonal:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+                diagonal:layout_constraintEnd_toEndOf="parent"
+                diagonal:layout_constraintStart_toStartOf="@+id/roundedImageView"
+                diagonal:layout_constraintTop_toTopOf="@+id/roundedImageView" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circleImageView2"
@@ -74,7 +88,7 @@
                 diagonal:layout_constraintHorizontal_bias="0.285"
                 diagonal:layout_constraintStart_toStartOf="@+id/circleImageView2"
                 diagonal:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
-            
+
 
             <TextView
                 android:id="@+id/textView3"
@@ -116,6 +130,7 @@
                 android:id="@+id/followersRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_5sdp"
                 diagonal:layout_constraintEnd_toEndOf="parent"
                 diagonal:layout_constraintStart_toStartOf="parent"
                 diagonal:layout_constraintTop_toBottomOf="@+id/textView4" />

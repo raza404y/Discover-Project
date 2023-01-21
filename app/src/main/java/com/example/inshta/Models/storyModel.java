@@ -1,10 +1,11 @@
 package com.example.inshta.Models;
 
 public class storyModel {
-    int story;
+    int story , storyProfileImage;
 
-    public storyModel(int story) {
+    public storyModel(int story, int storyProfileImage) {
         this.story = story;
+        this.storyProfileImage = storyProfileImage;
     }
 
     public int getStory() {
@@ -13,5 +14,13 @@ public class storyModel {
 
     public void setStory(int story) {
         this.story = story;
+    }
+
+    public int getStoryProfileImage() {
+        return storyProfileImage;
+    }
+
+    public void setStoryProfileImage(int storyProfileImage) {
+        this.storyProfileImage = storyProfileImage;
     }
 }

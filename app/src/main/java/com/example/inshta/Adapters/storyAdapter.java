@@ -14,6 +14,8 @@ import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
 
     ArrayList<storyModel> list;
@@ -35,6 +37,7 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         storyModel model = list.get(position);
         holder.stroyImage.setImageResource(model.getStory());
+        holder.storyProfileImage.setImageResource(model.getStoryProfileImage());
     }
 
     @Override
@@ -45,11 +48,13 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
     public class viewHolder extends RecyclerView.ViewHolder {
 
         RoundedImageView stroyImage;
+        CircleImageView storyProfileImage;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
            stroyImage = itemView.findViewById(R.id.storyImageView);
+           storyProfileImage = itemView.findViewById(R.id.storyProfileImage);
         }
     }
 

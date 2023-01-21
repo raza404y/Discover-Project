@@ -3,64 +3,58 @@ package com.example.inshta.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.inshta.Adapters.notificationAdapter;
+import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link bellFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class bellFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public bellFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment bellFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static bellFragment newInstance(String param1, String param2) {
-        bellFragment fragment = new bellFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    RecyclerView notificationRV;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bell, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_bell, container, false);
+
+
+        notificationRV = view.findViewById(R.id.notificationRecyclerView);
+
+
+        ArrayList<NotificationModel> listNotify = new ArrayList<>();
+
+        listNotify.add(new NotificationModel(R.drawable.img_6,"<b>Elon Musk</b> mentioned you in a comment.","just Now"));
+        listNotify.add(new NotificationModel(R.drawable.img_5,"<b>Mark Zuckerberg</b> liked your picture.","5 minutes ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_7,"<b>Steve Jobs</b> commented on your picture.","1 hours ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_6,"<b>Elon Musk</b> mentioned you in a comment.","3 hours ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_5,"<b>Mark Zuckerberg</b> liked your picture.","8 hours ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_7,"<b>Steve Jobs</b> mentioned you in a comment.","11 hours ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_6,"<b>Elon Musk</b> mentioned you in a comment.","1 day ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_5,"<b>Mark Zuckerberg</b> liked your picture.","5 days Ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_7,"<b>Steve Jobs</b> mentioned you in a comment.","7 days ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_6,"<b>Elon Musk</b> mentioned you in a comment.","1 mon ago"));
+        listNotify.add(new NotificationModel(R.drawable.img_5,"<b>Mark Zuckerberg</b> liked your picture.","2 mons ago"));
+
+        notificationAdapter  adapter = new notificationAdapter(listNotify,getContext());
+        notificationRV.setLayoutManager(new LinearLayoutManager(getContext()));
+        notificationRV.setAdapter(adapter);
+
+        return view;
     }
 }

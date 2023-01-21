@@ -6,11 +6,11 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/storyImageView"
-        android:layout_width="@dimen/_90sdp"
+        android:layout_width="@dimen/_115sdp"
         android:layout_height="@dimen/_90sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/img_4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +18,20 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:riv_corner_radius="@dimen/_15sdp" />
 
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/storyProfileImage"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:src="@drawable/img_6"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        app:civ_border_width="@dimen/_1sdp"
+        app:civ_border_color="@color/instalastclor"
+        app:layout_constraintStart_toStartOf="@+id/storyImageView"
+        app:layout_constraintTop_toTopOf="@+id/storyImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
