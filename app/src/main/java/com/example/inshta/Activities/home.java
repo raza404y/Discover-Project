@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.inshta.Models.Users;
 import com.example.inshta.R;
 import com.example.inshta.databinding.ActivityHomeBinding;
 import com.example.inshta.fragments.bellFragment;
@@ -21,12 +24,18 @@ import com.example.inshta.fragments.homeFragment;
 import com.example.inshta.fragments.profileFragment;
 import com.example.inshta.fragments.searchFragment;
 import com.example.inshta.fragments.uploadFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import io.ak1.OnBubbleClickListener;
 
 public class home extends AppCompatActivity {
 
     ActivityHomeBinding binding;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,11 @@ public class home extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         home.this.setTitle("My Profile");
+
+        auth = FirebaseAuth.getInstance();
+
+
+
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, new homeFragment());
@@ -87,7 +101,9 @@ public class home extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.logoutAction){
-            Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
+            auth.signOut();
+            startActivity(new Intent(getApplicationContext(),login.class));
+            Toast.makeText(this, "logged out successfully", Toast.LENGTH_SHORT).show();
         }
         return true;
     }

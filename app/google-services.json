@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441346978535",
+    "project_id": "inshta",
+    "storage_bucket": "inshta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441346978535:android:91eccf9c9adaa45a842842",
+        "android_client_info": {
+          "package_name": "com.example.inshta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441346978535-9l9c3m4ro8bho4as34kiieqaihd90nht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL0LzJjXh3sEwxWHbdgusGiCwOnidVCk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441346978535-9l9c3m4ro8bho4as34kiieqaihd90nht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
