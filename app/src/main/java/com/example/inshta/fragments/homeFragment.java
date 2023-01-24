@@ -52,14 +52,16 @@ public class homeFragment extends Fragment {
         database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
+
+                if (getActivity() != null) {
                     Users users = snapshot.getValue(Users.class);
-                    Glide.with(getActivity())
+                    Glide.with(getContext())
                             .load(users.getProfile())
                             .placeholder(R.drawable.profile_placeholder)
                             .into(binding.homeProfileImage);
                 }
-            }
+
+                }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

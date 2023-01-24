@@ -16,17 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/profileProgressbar"
-                android:visibility="gone"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
-                android:backgroundTint="@color/black"
-                diagonal:layout_constraintBottom_toBottomOf="parent"
-                diagonal:layout_constraintEnd_toEndOf="parent"
-                diagonal:layout_constraintStart_toStartOf="parent"
-                diagonal:layout_constraintTop_toTopOf="parent" />
-
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/uploadCoverImageView"

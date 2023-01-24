@@ -90,11 +90,11 @@ public class profileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     Users users = snapshot.getValue(Users.class);
-                    Glide.with(getContext())
+                    Glide.with(getActivity())
                             .load(users.getCoverPhoto())
                             .placeholder(R.drawable.cover_placeholder)
                             .into(binding.uploadCoverImageView);
-                    Glide.with(getContext())
+                    Glide.with(getActivity())
                                     .load(users.getProfile())
                                             .placeholder(R.drawable.profile_placeholder)
                                                     .into(binding.profilePicture);
