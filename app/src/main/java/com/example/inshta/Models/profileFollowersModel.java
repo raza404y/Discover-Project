@@ -1,27 +1,31 @@
 package com.example.inshta.Models;
 
 public class profileFollowersModel {
-    int followerPicture;
-    String followerName;
 
-    public profileFollowersModel(int followerPicture, String followerName) {
-        this.followerPicture = followerPicture;
-        this.followerName = followerName;
+    private String followedBy;
+    private long followerdAt;
+
+    public profileFollowersModel(String followedBy, long followerdAt) {
+        this.followedBy = followedBy;
+        this.followerdAt = followerdAt;
     }
 
-    public int getFollowerPicture() {
-        return followerPicture;
+    public profileFollowersModel() {
     }
 
-    public void setFollowerPicture(int followerPicture) {
-        this.followerPicture = followerPicture;
+    public String getFollowedBy() {
+        return followedBy;
     }
 
-    public String getFollowerName() {
-        return followerName;
+    public void setFollowedBy(String followedBy) {
+        this.followedBy = followedBy;
     }
 
-    public void setFollowerName(String followerName) {
-        this.followerName = followerName;
+    public long getFollowerdAt() {
+        return followerdAt;
+    }
+
+    public void setFollowerdAt(long followerdAt) {
+        this.followerdAt = followerdAt;
     }
 }

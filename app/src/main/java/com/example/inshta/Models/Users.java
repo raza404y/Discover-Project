@@ -5,6 +5,8 @@ public class Users {
     private String name , profession , email , password;
     private String coverPhoto;
     private String profile;
+    private String userId;
+    private int followerCount;
 
 
     public Users(String name, String profession, String email, String password) {
@@ -15,6 +17,22 @@ public class Users {
     }
 
     public Users() {
+    }
+
+    public int getFollowerCount() {
+        return followerCount;
+    }
+
+    public void setFollowerCount(int followerCount) {
+        this.followerCount = followerCount;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getProfile() {

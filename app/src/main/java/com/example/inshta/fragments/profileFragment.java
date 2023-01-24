@@ -66,16 +66,32 @@ public class profileFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
 
         ArrayList<profileFollowersModel> listFollowers = new ArrayList<>();
-        listFollowers.add(new profileFollowersModel(R.drawable.img_5, "Mark Zuckerberg"));
-        listFollowers.add(new profileFollowersModel(R.drawable.img_6, "Elon Musk"));
-        listFollowers.add(new profileFollowersModel(R.drawable.img_7, "Steve Jobs"));
-        listFollowers.add(new profileFollowersModel(R.drawable.img_5, "Mark Zuckerberg"));
-        listFollowers.add(new profileFollowersModel(R.drawable.img_6, "Elon Musk"));
-        listFollowers.add(new profileFollowersModel(R.drawable.img_7, "Steve Jobs"));
 
         profileFollowerAdapter followerAdapter = new profileFollowerAdapter(listFollowers, getContext());
         binding.followersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         binding.followersRecyclerView.setAdapter(followerAdapter);
+
+
+        database.getReference().child("Users")
+                .child(auth.getUid())
+                .child("followers").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            listFollowers.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            profileFollowersModel model = dataSnapshot.getValue(profileFollowersModel.class);
+                            listFollowers.add(model);
+                        }
+                        followerAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
 
         binding.uploadCoverImageView.setOnClickListener(view -> openGallery());
@@ -99,7 +115,7 @@ public class profileFragment extends Fragment {
                                             .placeholder(R.drawable.profile_placeholder)
                                                     .into(binding.profilePicture);
                     binding.profileUsername.setText(users.getName());
-
+                    binding.profileFollowerCountTV.setText(users.getFollowerCount()+"");
                 }
             }
 

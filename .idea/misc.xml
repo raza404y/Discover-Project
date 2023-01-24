@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/button_custom_follow.xml" value="0.169" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/button_follow_false.xml" value="0.169" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/button_follow_true.xml" value="0.169" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/follow_active_btn.xml" value="0.169" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.1495" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.174" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_comment.xml" value="0.2115" />
@@ -21,6 +25,7 @@
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/followers_rv_layout.xml" value="0.22" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_bell.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_profile.xml" value="0.25" />

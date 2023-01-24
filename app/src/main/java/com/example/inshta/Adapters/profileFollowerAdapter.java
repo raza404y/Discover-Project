@@ -6,8 +6,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.example.inshta.Models.Users;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
+import com.example.inshta.databinding.ProfileFollowersRvLayoutBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -33,9 +42,28 @@ public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollower
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        profileFollowersModel followersModel = listFollowers.get(position);
-        holder.followerPicture.setImageResource(followersModel.getFollowerPicture());
-        holder.followerName.setText(followersModel.getFollowerName());
+        profileFollowersModel model = listFollowers.get(position);
+
+        FirebaseDatabase.getInstance().getReference()
+                .child("Users")
+                .child(model.getFollowedBy()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Users users = snapshot.getValue(Users.class);
+                        Glide.with(context)
+                                .load(users.getProfile())
+                                .placeholder(R.drawable.profile_placeholder)
+                                .into(holder.binding.followerPicture);
+                        holder.binding.followerName.setText(users.getName());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 
     @Override
@@ -45,14 +73,13 @@ public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollower
 
     public class viewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView followerPicture;
-        TextView followerName;
-
+        ProfileFollowersRvLayoutBinding binding;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
-            followerPicture = itemView.findViewById(R.id.followerPicture);
-            followerName = itemView.findViewById(R.id.followerName);
+            binding = ProfileFollowersRvLayoutBinding.bind(itemView);
+
+
         }
     }
 }

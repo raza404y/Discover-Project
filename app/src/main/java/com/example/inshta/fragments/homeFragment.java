@@ -59,6 +59,10 @@ public class homeFragment extends Fragment {
                             .load(users.getProfile())
                             .placeholder(R.drawable.profile_placeholder)
                             .into(binding.homeProfileImage);
+                    Glide.with(getContext())
+                            .load(users.getProfile())
+                            .placeholder(R.drawable.profile_placeholder)
+                            .into(binding.storyImageView);
                 }
 
                 }

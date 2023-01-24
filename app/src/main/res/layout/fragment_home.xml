@@ -103,12 +103,11 @@
                             android:animateLayoutChanges="true">
 
                             <com.makeramen.roundedimageview.RoundedImageView
-                                android:id="@+id/roundedImageView1"
+                                android:id="@+id/storyImageView"
                                 android:layout_width="@dimen/_110sdp"
                                 android:layout_height="@dimen/_90sdp"
                                 android:layout_marginTop="@dimen/_9sdp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/profile_image"
                                 app:riv_corner_radius="@dimen/_15sdp" />
 
 
