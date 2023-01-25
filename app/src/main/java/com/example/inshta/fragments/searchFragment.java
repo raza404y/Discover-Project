@@ -45,12 +45,14 @@ public class searchFragment extends Fragment {
 
         ArrayList<Users> userList = new ArrayList<>();
 
-        userAdapter adapter = new userAdapter(userList,getContext());
-        binding.followersRecyclerView.setAdapter(adapter);
-        binding.followersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+//         yr comment kro code mujy pher pata chal jay errror ka
+//        ok
+//        adapter to on datachange k andar le k jana hai
 
-        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+        //Perfect check out the whatsapp
+
+        database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                     userList.clear();
@@ -59,7 +61,10 @@ public class searchFragment extends Fragment {
                     users.setUserId(dataSnapshot.getKey());
                     userList.add(users);
                 }
-                adapter.notifyDataSetChanged();
+
+                userAdapter adapter = new userAdapter(userList,getContext());
+                binding.followersRecyclerView.setAdapter(adapter);
+                binding.followersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 
             @Override

@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder>{
+public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
 
 
     ArrayList<Users> usersList;
@@ -41,7 +41,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder>{
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.followers_rv_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.followers_rv_layout, parent, false);
         return new viewHolder(view);
     }
 
@@ -57,51 +57,53 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder>{
         holder.binding.followerProfession.setText(users.getProfession());
 
 
+        holder.binding.followBtn.setOnClickListener(view -> {
+
+            profileFollowersModel follow = new profileFollowersModel();
+            follow.setFollowedBy(FirebaseAuth.getInstance().getUid());
+            follow.setFollowerdAt(new Date().getTime());
+            FirebaseDatabase.getInstance().getReference().child("Users")
+                    .child(users.getUserId())
+                    .child("followers")
+                    .child(FirebaseAuth.getInstance().getUid())
+                    .setValue(follow).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            FirebaseDatabase.getInstance().getReference()
+                                    .child("Users")
+                                    .child(users.getUserId())
+                                    .child("followerCount")
+                                    .setValue(users.getFollowerCount() + 1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+
+                                            holder.binding.followBtn.setBackground(ContextCompat.getDrawable(context, R.drawable.follow_active_btn));
+                                            holder.binding.followBtn.setText("following");
+                                            holder.binding.followBtn.setEnabled(false);
+                                            Toast.makeText(context, "You followed " + users.getName(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
+                        }
+                    });
+
+        });
+
+//        aik aur node add karo
         FirebaseDatabase.getInstance().getReference()
-                        .child("Users")
-                                .child(users.getUserId())
-                                        .child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
+                .child("Users")
+                .child(users.getUserId())
+                .child("followers")
+                .child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        if (snapshot.exists()){
+                        if (snapshot.exists()) {
                             holder.binding.followBtn.setBackgroundDrawable(getDrawable(context, R.drawable.follow_active_btn));
                             holder.binding.followBtn.setText("following");
                             holder.binding.followBtn.setEnabled(false);
-                        }else {
-                            holder.binding.followBtn.setOnClickListener(view -> {
-
-                                profileFollowersModel follow = new profileFollowersModel();
-                                follow.setFollowedBy(FirebaseAuth.getInstance().getUid());
-                                follow.setFollowerdAt(new Date().getTime());
-                                FirebaseDatabase.getInstance().getReference().child("Users")
-                                        .child(users.getUserId())
-                                        .child("followers")
-                                        .child(FirebaseAuth.getInstance().getUid())
-                                        .setValue(follow).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                FirebaseDatabase.getInstance().getReference()
-                                                        .child("Users")
-                                                        .child(users.getUserId())
-                                                        .child("followerCount")
-                                                        .setValue(users.getFollowerCount()+1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                            @Override
-                                                            public void onSuccess(Void unused) {
-                                                                holder.binding.followBtn.setBackground(getDrawable(context, R.drawable.follow_active_btn));
-                                                                holder.binding.followBtn.setText("following");
-                                                                holder.binding.followBtn.setEnabled(false);
-                                                                Toast.makeText(context, "You followed "+users.getName(), Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        });
-
-                                            }
-                                        });
-
-                            });
-
                         }
-
                     }
 
                     @Override
@@ -125,7 +127,6 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder>{
             binding = FollowersRvLayoutBinding.bind(itemView);
         }
     }
-
 
 
 }
