@@ -6,7 +6,7 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/storyImageView"
-        android:layout_width="@dimen/_115sdp"
+        android:layout_width="@dimen/_125sdp"
         android:layout_height="@dimen/_90sdp"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"

@@ -12,6 +12,7 @@
        android:text="All Users"
        android:textSize="@dimen/_20ssp"
        android:gravity="start"
+       android:fontFamily="@font/roboto_bold"
        android:paddingStart="@dimen/_15sdp"
        android:layout_marginTop="@dimen/_11sdp"
        android:layout_marginBottom="@dimen/_5sdp"

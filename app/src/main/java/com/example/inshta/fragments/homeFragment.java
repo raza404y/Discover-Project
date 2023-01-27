@@ -59,13 +59,13 @@ public class homeFragment extends Fragment {
                             .load(users.getProfile())
                             .placeholder(R.drawable.profile_placeholder)
                             .into(binding.homeProfileImage);
-                    Glide.with(getContext())
-                            .load(users.getProfile())
-                            .placeholder(R.drawable.profile_placeholder)
-                            .into(binding.storyImageView);
+//                    Glide.with(getContext())
+//                            .load(users.getProfile())
+//                            .placeholder(R.drawable.profile_placeholder)
+//                            .into(binding.storyImageView);
                 }
 
-                }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -96,10 +96,10 @@ public class homeFragment extends Fragment {
          // ########## Post Adapter ############### //
 
         ArrayList<postModel> postList = new ArrayList<>();
-        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Bill Gates","Web developer","277","129","4"));
-        postList.add(new postModel(R.drawable.img_6,R.drawable.img_1,"Elon Musk","Traveller","347","249","11"));
-        postList.add(new postModel(R.drawable.img_7,R.drawable.img_2,"Steve Jobs","Software developer","122","12","2"));
-        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Mark Zukerberg","Creator","542","199","21"));
+//        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Bill Gates","Web developer","277","129","4"));
+//        postList.add(new postModel(R.drawable.img_6,R.drawable.img_1,"Elon Musk","Traveller","347","249","11"));
+//        postList.add(new postModel(R.drawable.img_7,R.drawable.img_2,"Steve Jobs","Software developer","122","12","2"));
+//        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Mark Zukerberg","Creator","542","199","21"));
 
         postAdapter postadapter = new postAdapter(postList,getContext());
         binding.postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

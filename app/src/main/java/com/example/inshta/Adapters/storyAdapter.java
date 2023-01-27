@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +39,16 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
         storyModel model = list.get(position);
         holder.stroyImage.setImageResource(model.getStory());
         holder.storyProfileImage.setImageResource(model.getStoryProfileImage());
+
+        holder.stroyImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (holder.getAdapterPosition()==0){
+                    Toast.makeText(context, "Clicked on Gallery", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

@@ -7,7 +7,7 @@
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="android:textCursorDrawable">@null</item>
-        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondary">@color/instalastclor</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

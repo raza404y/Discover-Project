@@ -81,76 +81,30 @@
                 android:orientation="vertical">
 
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollView"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_110sdp"
-                    android:scrollbars="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view">
 
-                    <LinearLayout
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/storyRecyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="@dimen/_95sdp"
+                        tools:listitem="@layout/stroy_rv_layout"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_8sdp" />
 
 
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_8sdp"
-                            android:animateLayoutChanges="true">
+                </LinearLayout>
 
-                            <com.makeramen.roundedimageview.RoundedImageView
-                                android:id="@+id/storyImageView"
-                                android:layout_width="@dimen/_110sdp"
-                                android:layout_height="@dimen/_90sdp"
-                                android:layout_marginTop="@dimen/_9sdp"
-                                android:scaleType="centerCrop"
-                                app:riv_corner_radius="@dimen/_15sdp" />
-
-
-                            <View
-                                android:id="@+id/view2"
-                                android:layout_width="@dimen/_105sdp"
-                                android:layout_height="@dimen/_88sdp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_4sdp"
-                                android:background="@drawable/view_bg" />
-
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_height="@dimen/_30sdp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_baseline_add_circle_outline_24" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_25sdp"
-                                android:fontFamily="@font/baloo_thambi"
-                                android:text="Create story"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_13sdp"
-                                android:textStyle="bold" />
-
-                        </FrameLayout>
-
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/storyRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_95sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_8sdp" />
-
-
-                    </LinearLayout>
-                </HorizontalScrollView>
 
                 <View
                     android:id="@+id/view3"
@@ -166,6 +120,7 @@
                     android:id="@+id/postRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    tools:listitem="@layout/post_rv_layout"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

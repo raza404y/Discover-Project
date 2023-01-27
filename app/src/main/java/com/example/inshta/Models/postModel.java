@@ -1,75 +1,62 @@
 package com.example.inshta.Models;
 
 public class postModel {
+    private String postId;
+    private String postedBy;
+    private long postAt;
+    private String postDescription;
+    private String postImage;
 
-    int profileImage , postImage ;
 
-    String postUsername , postProfession , likes , comments , shares;
-
-    public postModel(int profileImage, int postImage, String postUsername, String postProfession, String likes, String comments, String shares) {
-        this.profileImage = profileImage;
+    public postModel(String postId, String postedBy, long postAt, String postDescription, String postImage) {
+        this.postId = postId;
+        this.postedBy = postedBy;
+        this.postAt = postAt;
+        this.postDescription = postDescription;
         this.postImage = postImage;
-        this.postUsername = postUsername;
-        this.postProfession = postProfession;
-        this.likes = likes;
-        this.comments = comments;
-        this.shares = shares;
     }
 
-    public int getProfileImage() {
-        return profileImage;
+    public postModel() {
     }
 
-    public void setProfileImage(int profileImage) {
-        this.profileImage = profileImage;
-    }
-
-    public int getPostImage() {
+    public String getPostImage() {
         return postImage;
     }
 
-    public void setPostImage(int postImage) {
+    public void setPostImage(String postImage) {
         this.postImage = postImage;
     }
 
-    public String getPostUsername() {
-        return postUsername;
+    public String getPostId() {
+        return postId;
     }
 
-    public void setPostUsername(String postUsername) {
-        this.postUsername = postUsername;
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 
-    public String getPostProfession() {
-        return postProfession;
+    public String getPostedBy() {
+        return postedBy;
     }
 
-    public void setPostProfession(String postProfession) {
-        this.postProfession = postProfession;
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
     }
 
-    public String getLikes() {
-        return likes;
+    public long getPostAt() {
+        return postAt;
     }
 
-    public void setLikes(String likes) {
-        this.likes = likes;
+    public void setPostAt(long postAt) {
+        this.postAt = postAt;
     }
 
-    public String getComments() {
-        return comments;
+    public String getPostDescription() {
+        return postDescription;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public String getShares() {
-        return shares;
-    }
-
-    public void setShares(String shares) {
-        this.shares = shares;
+    public void setPostDescription(String postDescription) {
+        this.postDescription = postDescription;
     }
 }
 
