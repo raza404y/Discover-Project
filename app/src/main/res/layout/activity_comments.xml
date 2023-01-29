@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/commentsRecyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.commentsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/commentsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/postDescription2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="top|start"
+                android:maxHeight="@dimen/_100sdp"
+                android:padding="@dimen/_2sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textColor="#131418"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/postImage2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_190sdp"
+                android:padding="@dimen/_5sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postDescription2"
+                app:riv_corner_radius="@dimen/_8sdp" />
+
+            <TextView
+                android:id="@+id/postUsername2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/name_textview_background"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingStart="@dimen/_45sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_7sdp"
+                android:text="Elon Musk"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/profileImage2"
+                app:layout_constraintStart_toStartOf="@+id/profileImage2"
+                app:layout_constraintTop_toTopOf="@+id/profileImage2" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage2"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/img_6"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/postImage2"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/likesTV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:drawableStart="@drawable/ic_heart"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="345"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postImage2" />
+
+            <TextView
+                android:id="@+id/commentsTV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:drawableStart="@drawable/ic_comment"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="123"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toStartOf="@+id/shareTV"
+                app:layout_constraintStart_toEndOf="@+id/likesTV2"
+                app:layout_constraintTop_toBottomOf="@+id/postImage2" />
+
+            <TextView
+                android:id="@+id/shareTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_14ssp"
+                android:drawableStart="@drawable/ic_share"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="7"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postImage2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commentsTV2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/writeCcomment"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:hint="Write your comment"
+            android:imeOptions="actionDone"
+            android:background="@drawable/write_comment_background"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/_13ssp"
+            android:maxLines="4"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sendCommentBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendCommentBtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_1sdp"
+            android:src="@drawable/ic_send_comment"
+            app:layout_constraintBottom_toBottomOf="@+id/writeCcomment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/writeCcomment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

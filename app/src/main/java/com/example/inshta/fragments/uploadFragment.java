@@ -3,6 +3,8 @@ package com.example.inshta.fragments;
 import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -137,7 +139,7 @@ public class uploadFragment extends Fragment {
         /// Uploading Post into database
 
         binding.btnPost.setOnClickListener(view -> {
-
+            enableProgressBar();
             StorageReference reference = storage.getReference()
                     .child("posts").child(auth.getUid())
                     .child(new Date().getTime()+"");
@@ -155,6 +157,17 @@ public class uploadFragment extends Fragment {
                             model.setPostAt(new Date().getTime());
                             model.setPostDescription(binding.postDescription.getText().toString().trim());
 
+                            database.getReference().child("posts").push()
+                                    .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
+                                            binding.postDescription.setText("");
+                                            binding.postImageView.setVisibility(View.INVISIBLE);
+
+                                            disableProgressBar();
+                                        }
+                                    });
 
                         }
                     });
@@ -187,4 +200,13 @@ public class uploadFragment extends Fragment {
 
 
     });
+
+    private void enableProgressBar(){
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.btnPost.setVisibility(View.INVISIBLE);
+    }
+    private void disableProgressBar(){
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.btnPost.setVisibility(View.VISIBLE);
+    }
 }

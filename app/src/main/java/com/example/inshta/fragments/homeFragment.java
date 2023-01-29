@@ -76,7 +76,7 @@ public class homeFragment extends Fragment {
 
 
         ArrayList<storyModel> list = new ArrayList<>();
-                list.add(new storyModel(R.drawable.img,R.drawable.img_6));
+                list.add(new storyModel(R.drawable.create_story,R.drawable.img_6));
                 list.add(new storyModel(R.drawable.img_1,R.drawable.profile_image));
                 list.add(new storyModel(R.drawable.img_2,R.drawable.img_7));
                 list.add(new storyModel(R.drawable.img_3,R.drawable.img_5));
@@ -96,16 +96,29 @@ public class homeFragment extends Fragment {
          // ########## Post Adapter ############### //
 
         ArrayList<postModel> postList = new ArrayList<>();
-//        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Bill Gates","Web developer","277","129","4"));
-//        postList.add(new postModel(R.drawable.img_6,R.drawable.img_1,"Elon Musk","Traveller","347","249","11"));
-//        postList.add(new postModel(R.drawable.img_7,R.drawable.img_2,"Steve Jobs","Software developer","122","12","2"));
-//        postList.add(new postModel(R.drawable.img_5,R.drawable.img,"Mark Zukerberg","Creator","542","199","21"));
 
         postAdapter postadapter = new postAdapter(postList,getContext());
         binding.postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.postRecyclerView.setAdapter(postadapter);
         binding.postRecyclerView.setNestedScrollingEnabled(true);
 
+        database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    postList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    postModel model = dataSnapshot.getValue(postModel.class);
+                    model.setPostId(dataSnapshot.getKey());
+                    postList.add(model);
+                }
+                postadapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         return binding.getRoot();

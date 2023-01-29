@@ -1,11 +1,18 @@
 package com.example.inshta.Adapters;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,9 +51,8 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
             @Override
             public void onClick(View v) {
 
-                if (holder.getAdapterPosition()==0){
-                    Toast.makeText(context, "Clicked on Gallery", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(context, "Gallery Clicked", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

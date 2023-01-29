@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/postDescriptionHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:gravity="top|start"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:padding="@dimen/_2sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:maxHeight="@dimen/_100sdp"
+        android:textColor="#131418"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postProfileImage" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/postProfileImage"
@@ -11,7 +27,6 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:src="@drawable/profile_image"
         app:civ_border_color="@color/statusbarcolor"
         app:civ_border_width="@dimen/_1sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +49,6 @@
         android:id="@+id/postUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bill Gates"
         android:textColor="@color/black"
         android:singleLine="true"
         android:textSize="@dimen/_16ssp"
@@ -54,7 +68,6 @@
         android:singleLine="true"
         android:textSize="@dimen/_11ssp"
         android:gravity="start"
-        android:text="Web developer"
         app:layout_constraintStart_toStartOf="@+id/postUserName"
         app:layout_constraintTop_toBottomOf="@+id/postUserName" />
 
@@ -62,13 +75,12 @@
         android:id="@+id/postImage"
         android:layout_width="0dp"
         android:layout_height="@dimen/_200sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:scaleType="centerCrop"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/img_1"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postProfession"
+        app:layout_constraintTop_toBottomOf="@+id/postDescriptionHome"
         app:riv_corner_radius="@dimen/_8sdp" />
 
     <TextView

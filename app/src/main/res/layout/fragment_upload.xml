@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -26,21 +27,34 @@
         app:layout_constraintTop_toTopOf="@+id/btnPost"
         app:layout_constraintVertical_bias="0.39" />
 
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPost"
+            app:layout_constraintEnd_toEndOf="@+id/btnPost"
+            app:layout_constraintStart_toStartOf="@+id/btnPost"
+            app:layout_constraintTop_toTopOf="@+id/btnPost" />
+
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnPost"
             android:layout_width="@dimen/_64sdp"
             android:layout_height="@dimen/_33sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:gravity="center"
-            android:enabled="false"
-            android:text="Post"
             android:background="@drawable/follow_active_btn"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="Post"
             android:textColor="@color/viewColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="@color/white"
             tools:ignore="TouchTargetSizeCheck" />
+
 
     <View
         android:id="@+id/view2"
@@ -131,7 +145,6 @@
             android:layout_width="@dimen/_38sdp"
             android:layout_height="@dimen/_38sdp"
             android:layout_marginStart="@dimen/_12sdp"
-            android:src="@drawable/img_6"
             app:civ_border_width="@dimen/_1sdp"
             app:civ_border_color="@color/instalastclor"
             android:layout_marginTop="@dimen/_10sdp"
@@ -145,7 +158,6 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:fontFamily="@font/roboto_bold"
             android:singleLine="true"
-            android:text="Elon Musk"
             android:layout_marginTop="@dimen/_10sdp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +169,6 @@
             android:id="@+id/postProfesstion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Android Developer"
             app:layout_constraintStart_toStartOf="@+id/postUsername"
             app:layout_constraintTop_toBottomOf="@+id/postUsername" />
     </androidx.constraintlayout.widget.ConstraintLayout>
