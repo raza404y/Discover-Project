@@ -105,6 +105,7 @@ public class commentsActivity extends AppCompatActivity {
             commentsModel model = new commentsModel();
             model.setCommentText(binding.writeCcomment.getText().toString().trim());
             model.setCommentedAt(new Date().getTime());
+
             model.setCommentedBy(auth.getUid());
 
         });
