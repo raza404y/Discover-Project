@@ -7,6 +7,7 @@ public class postModel {
     private String postDescription;
     private String postImage;
     private int postLike;
+    private int commentCount;
 
 
     public postModel(String postId, String postedBy, long postAt, String postDescription, String postImage) {
@@ -18,6 +19,14 @@ public class postModel {
     }
 
     public postModel() {
+    }
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
 
     public int getPostLike() {

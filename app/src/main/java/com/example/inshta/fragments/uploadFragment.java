@@ -106,7 +106,7 @@ public class uploadFragment extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String description = binding.postDescription.getText().toString().trim();
 
-                if (!description.isEmpty() || urlPostImage!=null) {
+                if (!description.isEmpty()) {
                     binding.btnPost.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.post_button_active));
                     binding.btnPost.setEnabled(true);
                     binding.btnPost.setTextColor(Color.parseColor("#000000"));
@@ -143,6 +143,11 @@ public class uploadFragment extends Fragment {
             StorageReference reference = storage.getReference()
                     .child("posts").child(auth.getUid())
                     .child(new Date().getTime()+"");
+                if (urlPostImage==null){
+                    Toast.makeText(getContext(), "Please select an image", Toast.LENGTH_SHORT).show();
+                    disableProgressBar();
+                }else {
+
             reference.putFile(urlPostImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -174,9 +179,10 @@ public class uploadFragment extends Fragment {
 
                 }
             });
+                }
 
         });
-        
+
         return binding.getRoot();
     }
 

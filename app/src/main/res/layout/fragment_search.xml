@@ -19,9 +19,26 @@
       android:textStyle="bold"
       android:textColor="@color/black"/>
 
-   <androidx.recyclerview.widget.RecyclerView
+   <FrameLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-      android:id="@+id/followersRecyclerView"/>
+       android:animateLayoutChanges="true"
+       android:layout_height="match_parent">
+
+      <ProgressBar
+         android:id="@+id/progressBar"
+          android:layout_gravity="center"
+          android:visibility="gone"
+          android:layout_width="@dimen/_35sdp"
+          android:layout_height="@dimen/_35sdp"/>
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/followersRecyclerView"
+          />
+
+   </FrameLayout>
+
+
 
 </LinearLayout>

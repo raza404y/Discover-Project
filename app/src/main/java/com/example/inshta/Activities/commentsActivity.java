@@ -2,12 +2,16 @@ package com.example.inshta.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Adapters.commentAdapter;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.commentsModel;
 import com.example.inshta.Models.postModel;
@@ -20,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class commentsActivity extends AppCompatActivity {
@@ -39,6 +44,7 @@ public class commentsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
 
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -72,7 +78,7 @@ public class commentsActivity extends AppCompatActivity {
                                 .into(binding.postImage2);
                         binding.postDescription2.setText(post.getPostDescription());
                         binding.likesTV2.setText(post.getPostLike()+"");
-
+                        binding.commentsTV2.setText(post.getCommentCount()+"");
                     }
 
                     @Override
@@ -105,10 +111,86 @@ public class commentsActivity extends AppCompatActivity {
             commentsModel model = new commentsModel();
             model.setCommentText(binding.writeCcomment.getText().toString().trim());
             model.setCommentedAt(new Date().getTime());
-
             model.setCommentedBy(auth.getUid());
+            
+            
+            database.getReference()
+                    .child("posts")
+                    .child(postid)
+                    .child("comments")
+                    .push()
+                    .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            database.getReference()
+                                    .child("posts")
+                                    .child(postid)
+                                    .child("commentCount").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            int commentCount = 0;
+                                            if (snapshot.exists()){
+                                                commentCount = snapshot.getValue(Integer.class);
+                                            }
+                                            database.getReference()
+                                                    .child("posts")
+                                                    .child(postid)
+                                                    .child("commentCount")
+                                                    .setValue(commentCount+1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void unused) {
+                                                            binding.writeCcomment.setText("");
+                                                        }
+                                                    });
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                        }
+                    });
 
         });
 
+
+        /// getting comments from database
+
+        ArrayList<commentsModel> commentList = new ArrayList<>();
+
+        commentAdapter adapter = new commentAdapter(commentList,getApplicationContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        binding.commentRV.setAdapter(adapter);
+        binding.commentRV.setLayoutManager(layoutManager);
+//        binding.commentRV.setNestedScrollingEnabled(false);
+        database.getReference()
+                .child("posts")
+                .child(postid)
+                .child("comments").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        commentList.clear();
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                            commentsModel model = snapshot1.getValue(commentsModel.class);
+                            commentList.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0,0);
     }
 }

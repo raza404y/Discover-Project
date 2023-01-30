@@ -98,10 +98,13 @@ public class homeFragment extends Fragment {
         ArrayList<postModel> postList = new ArrayList<>();
 
         postAdapter postadapter = new postAdapter(postList,getContext());
-        binding.postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
+        layoutManager1.setReverseLayout(true);
+        layoutManager1.setStackFromEnd(true);
         binding.postRecyclerView.setAdapter(postadapter);
-        binding.postRecyclerView.setNestedScrollingEnabled(true);
+        binding.postRecyclerView.setLayoutManager(layoutManager1);
 
+        binding.progressBar.setVisibility(View.VISIBLE);
         database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -112,6 +115,7 @@ public class homeFragment extends Fragment {
                     postList.add(model);
                 }
                 postadapter.notifyDataSetChanged();
+                binding.progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override

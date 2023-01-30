@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Adapters.postAdapter;
 import com.example.inshta.Adapters.profileFollowerAdapter;
 import com.example.inshta.Models.Users;
+import com.example.inshta.Models.postModel;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
 import com.example.inshta.databinding.FragmentProfileBinding;
@@ -124,6 +127,31 @@ public class profileFragment extends Fragment {
 
             }
         });
+
+        ArrayList<postModel> mypostList = new ArrayList<>();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        binding.myPostsRecyclerView.setLayoutManager(layoutManager);
+        postAdapter adapter = new postAdapter(mypostList,getContext());
+        binding.myPostsRecyclerView.setAdapter(adapter);
+
+
+        database.getReference()
+                .child("posts").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                            postModel model = snapshot1.getValue(postModel.class);
+                            model.getPostedBy();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
         return binding.getRoot();

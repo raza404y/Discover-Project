@@ -17,6 +17,7 @@ import com.example.inshta.Models.Users;
 import com.example.inshta.Models.postModel;
 import com.example.inshta.R;
 import com.example.inshta.databinding.PostRvLayoutBinding;
+import com.github.marlonlom.utilities.timeago.TimeAgo;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -49,13 +50,14 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         postModel model = postList.get(position);
+        String textTimePost = TimeAgo.using(model.getPostAt());
         Glide.with(context)
                 .load(model.getPostImage())
                 .placeholder(R.drawable.cover_placeholder)
                 .into(holder.binding.postImage);
         holder.binding.postDescriptionHome.setText(model.getPostDescription());
         holder.binding.likesTV.setText(model.getPostLike() + "");
-
+        holder.binding.commentsTV.setText(model.getCommentCount()+"");
         FirebaseDatabase.getInstance().getReference()
                 .child("Users")
                 .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
@@ -67,7 +69,7 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
                                 .placeholder(R.drawable.profile_placeholder)
                                 .into(holder.binding.postProfileImage);
                         holder.binding.postUserName.setText(users.getName());
-                        holder.binding.postProfession.setText(users.getProfession());
+                        holder.binding.postProfession.setText(textTimePost+"");
                     }
 
                     @Override

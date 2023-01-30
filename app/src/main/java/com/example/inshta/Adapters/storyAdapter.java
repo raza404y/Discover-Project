@@ -1,29 +1,16 @@
 package com.example.inshta.Adapters;
-
-import static android.app.Activity.RESULT_OK;
-
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.inshta.R;
 import com.example.inshta.Models.storyModel;
 import com.makeramen.roundedimageview.RoundedImageView;
-
 import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
-
 public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
 
     ArrayList<storyModel> list;
@@ -47,14 +34,16 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
         holder.stroyImage.setImageResource(model.getStory());
         holder.storyProfileImage.setImageResource(model.getStoryProfileImage());
 
-        holder.stroyImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (position==0) {
+            holder.stroyImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //  ((Activity) context).startActivityForResult(galleryIntent, PICK_IMAGE);
 
-                Toast.makeText(context, "Gallery Clicked", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+            });
+        }
     }
 
     @Override
