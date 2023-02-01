@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.inshta.Adapters.commentAdapter;
+import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.commentsModel;
 import com.example.inshta.Models.postModel;
@@ -140,6 +141,18 @@ public class commentsActivity extends AppCompatActivity {
                                                         @Override
                                                         public void onSuccess(Void unused) {
                                                             binding.writeCcomment.setText("");
+                                                            NotificationModel notificationModel = new NotificationModel();
+                                                            notificationModel.setNotificationBy(FirebaseAuth.getInstance().getUid());
+                                                            notificationModel.setNotificationAt(new Date().getTime());
+                                                            notificationModel.setPostId(postid);
+                                                            notificationModel.setPostedBy(postedby);
+                                                            notificationModel.setType("comment");
+
+                                                            FirebaseDatabase.getInstance().getReference()
+                                                                    .child("notification")
+                                                                    .child(postedby)
+                                                                    .push()
+                                                                    .setValue(notificationModel);
                                                         }
                                                     });
                                         }

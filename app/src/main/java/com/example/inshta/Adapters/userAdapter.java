@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
@@ -81,6 +82,17 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
                                             holder.binding.followBtn.setText("following");
                                             holder.binding.followBtn.setEnabled(false);
                                             Toast.makeText(context, "You followed " + users.getName(), Toast.LENGTH_SHORT).show();
+
+                                            NotificationModel model = new NotificationModel();
+                                            model.setNotificationBy(FirebaseAuth.getInstance().getUid());
+                                            model.setNotificationAt(new Date().getTime());
+                                            model.setType("follow");
+
+                                            FirebaseDatabase.getInstance().getReference()
+                                                    .child("notification")
+                                                    .child(users.getUserId())
+                                                    .push()
+                                                    .setValue(model);
                                         }
                                     });
 

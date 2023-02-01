@@ -51,26 +51,28 @@ public class searchFragment extends Fragment {
 //        adapter to on datachange k andar le k jana hai
 
         //Perfect check out the whatsapp
-        userAdapter adapter = new userAdapter(userList,getContext());
+        userAdapter adapter = new userAdapter(userList, getContext());
         binding.followersRecyclerView.setAdapter(adapter);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-            layoutManager.setReverseLayout(true);
-            layoutManager.setStackFromEnd(true);
-            binding.followersRecyclerView.setLayoutManager(layoutManager);
-            binding.progressBar.setVisibility(View.VISIBLE);
-            
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        binding.followersRecyclerView.setLayoutManager(layoutManager);
+        binding.progressBar.setVisibility(View.VISIBLE);
+
         database.getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    userList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Users users = dataSnapshot.getValue(Users.class);
-                    users.setUserId(dataSnapshot.getKey());
-                    // if current user id not equals to firebase userId then it will hide our id
-                    if (!dataSnapshot.getKey().equals(auth.getUid())){
-                        userList.add(users);
+                userList.clear();
+                if (getActivity() != null) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Users users = dataSnapshot.getValue(Users.class);
+                        users.setUserId(dataSnapshot.getKey());
+                        // if current user id not equals to firebase userId then it will hide our id
+                        if (!dataSnapshot.getKey().equals(auth.getUid())) {
+                            userList.add(users);
+                        }
+                        adapter.notifyDataSetChanged();
                     }
-                    adapter.notifyDataSetChanged();
                 }
                 binding.progressBar.setVisibility(View.INVISIBLE);
 
@@ -83,7 +85,6 @@ public class searchFragment extends Fragment {
         });
 
 
-
-       return binding.getRoot();
+        return binding.getRoot();
     }
 }

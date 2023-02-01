@@ -32,7 +32,6 @@ public class login extends AppCompatActivity {
 
 
         binding.loginBtn.setOnClickListener(view -> {
-
             loginUser();
 
         });

@@ -16,6 +16,7 @@
     <color name="icontint">#00363636</color>
     <color name="viewColor">#8DAAA5A5</color>
     <color name="red">#BE1614</color>
+    <color name="greyColor">#F0F0F0</color>
 
 
 </resources>

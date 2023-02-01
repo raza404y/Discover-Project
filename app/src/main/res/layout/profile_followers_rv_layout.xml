@@ -12,6 +12,7 @@
         android:layout_height="@dimen/_45sdp"
         app:civ_border_color="@color/viewColor"
         app:civ_border_width="@dimen/_2sdp"
+        android:src="@drawable/profile_placeholder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,9 +21,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_7sdp"
+        android:gravity="center"
         android:maxWidth="@dimen/_50ssp"
+        android:paddingStart="@dimen/_1sdp"
+        android:padding="@dimen/_1sdp"
         android:singleLine="true"
         android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/followerPicture"
         app:layout_constraintStart_toStartOf="@+id/followerPicture"
         app:layout_constraintTop_toBottomOf="@+id/followerPicture" />
 

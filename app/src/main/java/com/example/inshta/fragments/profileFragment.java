@@ -128,13 +128,6 @@ public class profileFragment extends Fragment {
             }
         });
 
-        ArrayList<postModel> mypostList = new ArrayList<>();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setReverseLayout(true);
-        layoutManager.setStackFromEnd(true);
-        binding.myPostsRecyclerView.setLayoutManager(layoutManager);
-        postAdapter adapter = new postAdapter(mypostList,getContext());
-        binding.myPostsRecyclerView.setAdapter(adapter);
 
 
         database.getReference()

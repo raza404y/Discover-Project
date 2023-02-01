@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
-                android:text="404m"
+                android:text=""
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16ssp"
@@ -135,32 +135,17 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/followersRecyclerView"
-                android:layout_width="398dp"
+                android:layout_width="0dp"
                 android:layout_height="170dp"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:paddingStart="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
                 diagonal:layout_constraintEnd_toEndOf="parent"
                 diagonal:layout_constraintStart_toStartOf="parent"
                 diagonal:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="@dimen/_8sdp"
-                android:text="Your Posts"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_18ssp"
-                diagonal:layout_constraintTop_toBottomOf="@+id/followersRecyclerView" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/myPostsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                diagonal:layout_constraintEnd_toEndOf="parent"
-                diagonal:layout_constraintStart_toStartOf="parent"
-                diagonal:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

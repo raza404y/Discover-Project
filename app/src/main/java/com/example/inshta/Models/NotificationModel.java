@@ -1,37 +1,80 @@
 package com.example.inshta.Models;
 
 public class NotificationModel {
+    String notificationBy;
+    long notificationAt;
+    String type;
+    String postId;
+    String notificationId;
+    String postedBy;
+    boolean checkOpen;
 
-    int notificationProfilePic;
-    String notificationText , time;
 
-    public NotificationModel(int notificationProfilePic, String notificationText, String time) {
-        this.notificationProfilePic = notificationProfilePic;
-        this.notificationText = notificationText;
-        this.time = time;
+    public NotificationModel(String notificationBy, long notificationAt, String type, String postId, String postedBy, boolean checkOpen) {
+        this.notificationBy = notificationBy;
+        this.notificationAt = notificationAt;
+        this.type = type;
+        this.postId = postId;
+        this.postedBy = postedBy;
+        this.checkOpen = checkOpen;
     }
 
-    public int getNotificationProfilePic() {
-        return notificationProfilePic;
+    public NotificationModel() {
     }
 
-    public void setNotificationProfilePic(int notificationProfilePic) {
-        this.notificationProfilePic = notificationProfilePic;
+    public String getNotificationId() {
+        return notificationId;
     }
 
-    public String getNotificationText() {
-        return notificationText;
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
     }
 
-    public void setNotificationText(String notificationText) {
-        this.notificationText = notificationText;
+    public String getNotificationBy() {
+        return notificationBy;
     }
 
-    public String getTime() {
-        return time;
+    public void setNotificationBy(String notificationBy) {
+        this.notificationBy = notificationBy;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public long getNotificationAt() {
+        return notificationAt;
+    }
+
+    public void setNotificationAt(long notificationAt) {
+        this.notificationAt = notificationAt;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPostId() {
+        return postId;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
+    }
+
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
+    }
+
+    public boolean isCheckOpen() {
+        return checkOpen;
+    }
+
+    public void setCheckOpen(boolean checkOpen) {
+        this.checkOpen = checkOpen;
     }
 }
