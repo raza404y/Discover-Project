@@ -27,7 +27,7 @@
         android:maxLines="10"
         android:text=""
         android:paddingEnd="@dimen/_8sdp"
-        android:textColor="#B2000000"
+        android:textColor="@color/comments_text_color"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_4sdp"
         android:textSize="@dimen/_14ssp"

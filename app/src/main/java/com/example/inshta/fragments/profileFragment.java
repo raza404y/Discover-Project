@@ -23,9 +23,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Activities.profileBio;
 import com.example.inshta.Adapters.postAdapter;
 import com.example.inshta.Adapters.profileFollowerAdapter;
 import com.example.inshta.Models.Users;
+import com.example.inshta.Models.bioModel;
+import com.example.inshta.Models.editProfileModel;
 import com.example.inshta.Models.postModel;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
@@ -109,19 +112,20 @@ public class profileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     Users users = snapshot.getValue(Users.class);
-                    Glide.with(getActivity())
-                            .load(users.getCoverPhoto())
-                            .placeholder(R.drawable.cover_placeholder)
-                            .into(binding.uploadCoverImageView);
-                    Glide.with(getActivity())
-                                    .load(users.getProfile())
-                                            .placeholder(R.drawable.profile_placeholder)
-                                                    .into(binding.profilePicture);
-                    binding.profileUsername.setText(users.getName());
-                    binding.profileFollowerCountTV.setText(users.getFollowerCount()+"");
+                    if (getActivity() != null) {
+                        Glide.with(getActivity())
+                                .load(users.getCoverPhoto())
+                                .placeholder(R.drawable.cover_placeholder)
+                                .into(binding.uploadCoverImageView);
+                        Glide.with(getActivity())
+                                .load(users.getProfile())
+                                .placeholder(R.drawable.profile_placeholder)
+                                .into(binding.profilePicture);
+                        binding.profileUsername.setText(users.getName());
+                        binding.profileFollowerCountTV.setText(users.getFollowerCount() + "");
+                    }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -146,10 +150,66 @@ public class profileFragment extends Fragment {
                     }
                 });
 
+        ///// Getting profile information from database
+
+
+        database.getReference()
+                .child("Users")
+                .child(auth.getUid())
+                .child("profileInfo").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (getActivity()!=null){
+
+                            if (snapshot.exists()){
+
+                                editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
+                                binding.countryTv.setText(profileModel.getCountry());
+                                binding.professionTv.setText(profileModel.getProfession());
+                                binding.relationTv.setText(profileModel.getRelation());
+                                binding.genderTv.setText(profileModel.getGender());
+
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        binding.bioTv.setOnClickListener(view -> {
+
+            startActivity(new Intent(getContext(), profileBio.class));
+            getActivity().overridePendingTransition(0,0);
+
+        });
+
+
+        database.getReference()
+                .child("Users")
+                .child(auth.getUid())
+                .child("bio").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            bioModel model = snapshot.getValue(bioModel.class);
+                            binding.bioTv.setText(model.getBio());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         return binding.getRoot();
     }
 
+    //////////////////////////////
 
     ActivityResultLauncher<Intent> pickCoverImage = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
 

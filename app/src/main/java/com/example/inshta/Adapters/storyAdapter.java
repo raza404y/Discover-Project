@@ -58,49 +58,49 @@ public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
                     .child(story.getStoryBy()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                Users users = snapshot.getValue(Users.class);
+                                Glide.with(context)
+                                        .load(users.getProfile())
+                                        .placeholder(R.drawable.profile_placeholder)
+                                        .into(holder.binding.storyProfileImage);
+                                holder.binding.storyName.setText(users.getName());
 
-                            Users users = snapshot.getValue(Users.class);
-                            Glide.with(context)
-                                    .load(users.getProfile())
-                                    .placeholder(R.drawable.profile_placeholder)
-                                    .into(holder.binding.storyProfileImage);
-                            holder.binding.storyName.setText(users.getName());
 
+                                holder.binding.storyImageView.setOnClickListener(view -> {
 
-                            holder.binding.storyImageView.setOnClickListener(view -> {
+                                    ArrayList<MyStory> myStories = new ArrayList<>();
 
-                                ArrayList<MyStory> myStories = new ArrayList<>();
+                                    for (userStories stories : story.getStories()) {
+                                        myStories.add(new MyStory(
+                                                stories.getImage()
+                                        ));
+                                    }
 
-                                for (userStories stories : story.getStories()) {
-                                    myStories.add(new MyStory(
-                                            stories.getImage()
-                                    ));
-                                }
+                                    new StoryView.Builder(((AppCompatActivity) context).getSupportFragmentManager())
+                                            .setStoriesList(myStories) // Required
+                                            .setStoryDuration(5000) // Default is 2000 Millis (2 Seconds)
+                                            .setTitleText(users.getName()) // Default is Hidden
+                                            .setSubtitleText("") // Default is Hidden
+                                            .setTitleLogoUrl(users.getProfile()) // Default is Hidden
+                                            .setStoryClickListeners(new StoryClickListeners() {
+                                                @Override
+                                                public void onDescriptionClickListener(int position) {
+                                                    //your action
+                                                }
 
-                                new StoryView.Builder(((AppCompatActivity) context).getSupportFragmentManager())
-                                        .setStoriesList(myStories) // Required
-                                        .setStoryDuration(5000) // Default is 2000 Millis (2 Seconds)
-                                        .setTitleText(users.getName()) // Default is Hidden
-                                        .setSubtitleText("") // Default is Hidden
-                                        .setTitleLogoUrl(users.getProfile()) // Default is Hidden
-                                        .setStoryClickListeners(new StoryClickListeners() {
-                                            @Override
-                                            public void onDescriptionClickListener(int position) {
-                                                //your action
-                                            }
+                                                @Override
+                                                public void onTitleIconClickListener(int position) {
+                                                    //your action
+                                                }
+                                            }) // Optional Listeners
+                                            .build() // Must be called before calling show method
+                                            .show();
 
-                                            @Override
-                                            public void onTitleIconClickListener(int position) {
-                                                //your action
-                                            }
-                                        }) // Optional Listeners
-                                        .build() // Must be called before calling show method
-                                        .show();
+                                });
 
-                            });
-
+                            }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 

@@ -103,10 +103,8 @@ public class home extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==R.id.logoutAction){
-            auth.signOut();
-            startActivity(new Intent(getApplicationContext(),login.class));
-            Toast.makeText(this, "logged out successfully", Toast.LENGTH_SHORT).show();
+        if (item.getItemId()==R.id.setting){
+            startActivity(new Intent(getApplicationContext(), settings.class));
         }
         return true;
     }

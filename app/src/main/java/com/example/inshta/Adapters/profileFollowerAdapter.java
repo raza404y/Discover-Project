@@ -49,19 +49,20 @@ public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollower
                 .child(model.getFollowedBy()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        Users users = snapshot.getValue(Users.class);
-                        Glide.with(context)
-                                .load(users.getProfile())
-                                .placeholder(R.drawable.profile_placeholder)
-                                .into(holder.binding.followerPicture);
-                        holder.binding.followerName.setText(users.getName());
+                        if (snapshot.exists()) {
+                            Users users = snapshot.getValue(Users.class);
+                            Glide.with(context)
+                                    .load(users.getProfile())
+                                    .placeholder(R.drawable.profile_placeholder)
+                                    .into(holder.binding.followerPicture);
+                            holder.binding.followerName.setText(users.getName());
+                        }
                     }
+                        @Override
+                        public void onCancelled (@NonNull DatabaseError error){
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
 
-                    }
                 });
 
     }

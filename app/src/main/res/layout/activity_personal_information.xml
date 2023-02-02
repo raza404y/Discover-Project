@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.personalInformation">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/updateToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Update details" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateToolbar">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/viewColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/newNameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/update_et_bacground"
+                android:hint="Enter your name"
+                android:imeOptions="actionDone"
+                android:maxLength="100"
+                android:focusable="true"
+                android:importantForAutofill="no"
+                android:padding="@dimen/_10sdp"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveNameBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:padding="@dimen/_9sdp"
+                android:text="Update Name"
+                android:backgroundTint="@color/grey2"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:rippleColor="@color/white"
+                android:fontFamily="@font/roboto"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/newNameET"
+                app:layout_constraintTop_toBottomOf="@+id/newNameET" />
+
+            <EditText
+                android:id="@+id/newEmailET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/update_et_bacground"
+                android:fontFamily="@font/roboto_bold"
+                android:hint="Enter your new email"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:maxLength="100"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@+id/saveNameBtn"
+                app:layout_constraintStart_toStartOf="@+id/newNameET"
+                app:layout_constraintTop_toBottomOf="@+id/saveNameBtn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveEmailBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/_10sdp"
+                android:text="Update Email"
+                android:backgroundTint="@color/grey2"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/newEmailET"
+                app:layout_constraintStart_toStartOf="@+id/newEmailET"
+                app:layout_constraintTop_toBottomOf="@+id/newEmailET"
+                app:rippleColor="@color/white" />
+
+
+            <EditText
+                android:id="@+id/newPasswordEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/update_et_bacground"
+                android:hint="Enter new password"
+                android:padding="@dimen/_10sdp"
+                android:importantForAutofill="no"
+                android:imeOptions="actionDone"
+                android:maxLength="200"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:inputType="textVisiblePassword"
+                app:layout_constraintEnd_toEndOf="@+id/saveEmailBtn"
+                app:layout_constraintStart_toStartOf="@+id/newEmailET"
+                app:layout_constraintTop_toBottomOf="@+id/saveEmailBtn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/savePasswordBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/_10sdp"
+                android:text="Update Password"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/grey2"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:cornerRadius="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="@+id/newPasswordEt"
+                app:layout_constraintStart_toStartOf="@+id/newPasswordEt"
+                app:layout_constraintTop_toBottomOf="@+id/newPasswordEt"
+                app:rippleColor="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

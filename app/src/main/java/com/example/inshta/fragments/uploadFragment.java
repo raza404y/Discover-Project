@@ -109,14 +109,14 @@ public class uploadFragment extends Fragment {
                 if (!description.isEmpty()) {
                     binding.btnPost.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.post_button_active));
                     binding.btnPost.setEnabled(true);
-                    binding.btnPost.setTextColor(Color.parseColor("#000000"));
+                    binding.btnPost.setTextColor(Color.parseColor("#ffffff"));
                 }
                 else {
                     binding.btnPost.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.follow_active_btn));
                     binding.btnPost.setEnabled(false);
                     binding.btnPost.setTextColor(Color.parseColor("#8DAAA5A5"));
                 }
-
+               // 8DAAA5A5
             }
 
             @Override

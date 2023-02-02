@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFF"
-        android:padding="@dimen/_9sdp"
+        android:padding="@dimen/_10sdp"
         app:bubbletab_disabled_icon_color="@color/black"
         app:bubbletab_horizontal_padding="@dimen/_15sdp"
         app:bubbletab_icon_padding="@dimen/_1sdp"

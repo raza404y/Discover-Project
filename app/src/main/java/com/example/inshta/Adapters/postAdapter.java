@@ -65,15 +65,16 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
                 .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Users users = snapshot.getValue(Users.class);
-                        Glide.with(context)
-                                .load(users.getProfile())
-                                .placeholder(R.drawable.profile_placeholder)
-                                .into(holder.binding.postProfileImage);
-                        holder.binding.postUserName.setText(users.getName());
-                        holder.binding.postProfession.setText(textTimePost+"");
+                       if (snapshot.exists()) {
+                           Users users = snapshot.getValue(Users.class);
+                           Glide.with(context)
+                                   .load(users.getProfile())
+                                   .placeholder(R.drawable.profile_placeholder)
+                                   .into(holder.binding.postProfileImage);
+                           holder.binding.postUserName.setText(users.getName());
+                           holder.binding.postProfession.setText(textTimePost + "");
 
-
+                       }
                     }
 
                     @Override

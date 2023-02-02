@@ -54,7 +54,7 @@
             android:backgroundTint="@android:color/transparent"
             android:paddingStart="@dimen/_2sdp"
             android:paddingEnd="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:gravity="start"
             android:paddingTop="@dimen/_22sdp"
             android:importantForAutofill="no"
