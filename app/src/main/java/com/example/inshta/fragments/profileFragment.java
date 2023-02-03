@@ -83,14 +83,15 @@ public class profileFragment extends Fragment {
                 .child("followers").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            listFollowers.clear();
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                            profileFollowersModel model = dataSnapshot.getValue(profileFollowersModel.class);
-                            listFollowers.add(model);
+                        listFollowers.clear();
+                        if (snapshot.exists()) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                profileFollowersModel model = dataSnapshot.getValue(profileFollowersModel.class);
+                                listFollowers.add(model);
+                            }
+                            followerAdapter.notifyDataSetChanged();
                         }
-                        followerAdapter.notifyDataSetChanged();
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
@@ -165,10 +166,14 @@ public class profileFragment extends Fragment {
 
                                 editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
                                 binding.countryTv.setText(profileModel.getCountry());
-                                binding.professionTv.setText(profileModel.getProfession());
                                 binding.relationTv.setText(profileModel.getRelation());
                                 binding.genderTv.setText(profileModel.getGender());
+                                if(profileModel.getProfession()==null){
+                                    binding.professionTv.setText("Profession not added");
+                                }else {
+                                    binding.professionTv.setText(profileModel.getProfession());
 
+                                }
                             }
 
                         }

@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Edit Profile"
+        app:title="@string/xcv"
         android:id="@+id/toolbar"/>
 
     <androidx.core.widget.NestedScrollView
@@ -29,7 +29,7 @@
                 android:id="@+id/countryEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="your country name?"
+                android:hint="@string/your_country_name"
                 android:background="@drawable/edit_profile_bg"
                 android:padding="@dimen/_10sdp"
                 android:inputType="text"
@@ -44,7 +44,7 @@
                 android:id="@+id/professioneEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="your profession?"
+                android:hint="@string/favourite_hobby"
                 android:background="@drawable/edit_profile_bg"
                 android:padding="@dimen/_10sdp"
                 android:inputType="text"
@@ -59,7 +59,7 @@
                 android:id="@+id/relationEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="current relationship status?"
+                android:hint="@string/current_relationship_status"
                 android:background="@drawable/edit_profile_bg"
                 android:padding="@dimen/_10sdp"
                 android:inputType="text"
@@ -74,7 +74,7 @@
                 android:id="@+id/genderEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Male or Female?"
+                android:hint="@string/male_or_female"
                 android:background="@drawable/edit_profile_bg"
                 android:padding="@dimen/_10sdp"
                 android:inputType="text"
@@ -107,7 +107,7 @@
                     android:backgroundTint="@color/black"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:text="Update"/>
+                    android:text="@string/update"/>
 
 
             </FrameLayout>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
+import com.example.inshta.Models.editProfileModel;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
 import com.example.inshta.databinding.FollowersRvLayoutBinding;
@@ -55,7 +56,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
                 .placeholder(R.drawable.profile_placeholder)
                 .into(holder.binding.followerProfilePic);
         holder.binding.followerUsername.setText(users.getName());
-
+        holder.binding.followerProfession.setText(users.getProfession2());
 
         holder.binding.followBtn.setOnClickListener(view -> {
 
@@ -122,7 +123,6 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
 
                     }
                 });
-
     }
 
     @Override

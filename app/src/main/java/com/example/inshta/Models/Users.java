@@ -7,15 +7,25 @@ public class Users {
     private String profile;
     private String userId;
     private int followerCount;
+    private String profession2;
 
 
-    public Users(String name, String email, String password) {
+    public Users(String name,String profession2, String email, String password) {
         this.name = name;
+        this.profession2 = profession2;
         this.email = email;
         this.password = password;
     }
 
     public Users() {
+    }
+
+    public String getProfession2() {
+        return profession2;
+    }
+
+    public void setProfession2(String profession2) {
+        this.profession2 = profession2;
     }
 
     public int getFollowerCount() {

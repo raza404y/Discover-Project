@@ -80,7 +80,7 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/postImage"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_height="@dimen/_210sdp"
         android:padding="@dimen/_5sdp"
         android:src="@drawable/cover_placeholder"
         android:scaleType="centerCrop"

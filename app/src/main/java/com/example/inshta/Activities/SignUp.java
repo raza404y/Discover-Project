@@ -57,14 +57,16 @@ public class SignUp extends AppCompatActivity {
     private void signupUser() {
 
         String name = binding.nameEt.getEditText().getText().toString().trim();
-//        String profession = binding.professionEt.getEditText().getText().toString().trim();
+        String profession = binding.prfoessionEt.getEditText().getText().toString().trim();
         String email = binding.emailEt.getEditText().getText().toString().trim();
         String password = binding.passwordEt.getEditText().getText().toString().trim();
 
 
         if (name.isEmpty()){
                 showToast("Enter you name");
-        } else if (email.isEmpty()){
+        }else if(profession.isEmpty()) {
+            showToast("Enter profession");
+        }else if (email.isEmpty()){
                 showToast("Enter you email");
         } else if (password.isEmpty()){
                 showToast("Enter your password");
@@ -81,7 +83,7 @@ public class SignUp extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()){
-                        Users users = new Users(name,email,password);
+                        Users users = new Users(name,profession,email,password);
                         String id = task.getResult().getUser().getUid();
                         DatabaseReference reference = database.getReference().child("Users").child(id);
                         reference.setValue(users);

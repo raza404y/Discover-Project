@@ -8,4 +8,10 @@
     <string name="name">Name</string>
     <string name="already_have_an_account"><u>Already have an account.</u></string>
     <string name="text">Welcome here you can edit your all personal detail and you can also update you profile information</string>
+    <string name="favourite_hobby">Favourite Hobby?</string>
+    <string name="your_country_name">your country name?</string>
+    <string name="current_relationship_status">current relationship status?</string>
+    <string name="male_or_female">Male or Female?</string>
+    <string name="update">Update</string>
+    <string name="xcv">Edit Profile</string>
 </resources>
