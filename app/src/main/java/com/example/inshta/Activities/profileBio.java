@@ -31,6 +31,16 @@ public class profileBio extends AppCompatActivity {
         setContentView(binding.getRoot());
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
+        setSupportActionBar(binding.toolabr);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        binding.toolabr.setNavigationOnClickListener(view -> {
+
+            onBackPressed();
+            overridePendingTransition(0,0);
+
+        });
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

@@ -55,7 +55,6 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
                 .placeholder(R.drawable.profile_placeholder)
                 .into(holder.binding.followerProfilePic);
         holder.binding.followerUsername.setText(users.getName());
-        holder.binding.followerProfession.setText(users.getProfession());
 
 
         holder.binding.followBtn.setOnClickListener(view -> {

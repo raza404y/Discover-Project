@@ -2,16 +2,15 @@ package com.example.inshta.Models;
 
 public class Users {
 
-    private String name , profession , email , password;
+    private String name , email , password;
     private String coverPhoto;
     private String profile;
     private String userId;
     private int followerCount;
 
 
-    public Users(String name, String profession, String email, String password) {
+    public Users(String name, String email, String password) {
         this.name = name;
-        this.profession = profession;
         this.email = email;
         this.password = password;
     }
@@ -57,14 +56,6 @@ public class Users {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
     }
 
     public String getEmail() {

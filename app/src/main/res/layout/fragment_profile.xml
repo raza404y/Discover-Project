@@ -104,6 +104,8 @@
                 android:layout_marginTop="@dimen/_2sdp"
                 android:paddingEnd="@dimen/_5sdp"
                 android:padding="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:textColorHint="@color/comments_text_color"
                 android:drawableEnd="@drawable/ic_baseline_edit_24"
                 android:textColor="@color/comments_text_color"

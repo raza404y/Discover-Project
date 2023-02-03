@@ -71,17 +71,17 @@ public class commentsActivity extends AppCompatActivity {
                 .child(postid).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        postModel post = snapshot.getValue(postModel.class);
-                        Glide.with(getApplicationContext())
-                                .load(post.getPostImage())
-                                .placeholder(R.drawable.cover_placeholder)
-                                .into(binding.postImage2);
-                        binding.postDescription2.setText(post.getPostDescription());
-                        binding.likesTV2.setText(post.getPostLike()+"");
-                        binding.commentsTV2.setText(post.getCommentCount()+"");
+                        if (snapshot.exists()) {
+                            postModel post = snapshot.getValue(postModel.class);
+                            Glide.with(getApplicationContext())
+                                    .load(post.getPostImage())
+                                    .placeholder(R.drawable.cover_placeholder)
+                                    .into(binding.postImage2);
+                            binding.postDescription2.setText(post.getPostDescription());
+                            binding.likesTV2.setText(post.getPostLike() + "");
+                            binding.commentsTV2.setText(post.getCommentCount() + "");
+                        }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
@@ -92,14 +92,15 @@ public class commentsActivity extends AppCompatActivity {
                 .child(postedby).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Users users = snapshot.getValue(Users.class);
-                        Glide.with(getApplicationContext())
-                                .load(users.getProfile())
-                                .placeholder(R.drawable.profile_placeholder)
-                                .into(binding.profileImage2);
-                        binding.postUsername2.setText(users.getName());
+                        if (snapshot.exists()) {
+                            Users users = snapshot.getValue(Users.class);
+                            Glide.with(getApplicationContext())
+                                    .load(users.getProfile())
+                                    .placeholder(R.drawable.profile_placeholder)
+                                    .into(binding.profileImage2);
+                            binding.postUsername2.setText(users.getName());
+                        }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 

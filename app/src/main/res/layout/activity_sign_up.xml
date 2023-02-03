@@ -21,7 +21,7 @@
             android:layout_height="@dimen/_100sdp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
-            android:src="@drawable/networking"/>
+            android:src="@drawable/icon"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -64,28 +64,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            app:boxBackgroundMode="filled"
-            app:boxBackgroundColor="@null"
-            android:id="@+id/professionEt"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/transparent"
-                android:paddingStart="@dimen/_2sdp"
-                android:paddingEnd="@dimen/_2sdp"
-                android:gravity="start"
-                android:paddingTop="@dimen/_22sdp"
-                android:importantForAutofill="no"
-                android:hint="Profession"
-                android:inputType="text"
-                android:maxLines="1"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
 
 

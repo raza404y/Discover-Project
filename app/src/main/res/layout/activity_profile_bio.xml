@@ -46,7 +46,8 @@
             <EditText
                 android:id="@+id/bioEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_150sdp"
+                android:gravity="start"
                 android:hint="Write something about yourself..."
                 android:padding="@dimen/_16sdp"
                 android:background="@drawable/bio_bg"

@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.inshta.Models.Users;
+import com.example.inshta.Models.editProfileModel;
 import com.example.inshta.Models.postModel;
 import com.example.inshta.R;
 import com.example.inshta.databinding.FragmentUploadBinding;
@@ -82,7 +83,7 @@ public class uploadFragment extends Fragment {
                             .placeholder(R.drawable.profile_placeholder)
                             .into(binding.postProfile);
                     binding.postUsername.setText(users.getName());
-                    binding.postProfesstion.setText(users.getProfession());
+                //    binding.postProfesstion.setText(users.getProfession());
                 }
             }
 
@@ -92,6 +93,23 @@ public class uploadFragment extends Fragment {
             }
         });
 
+        FirebaseDatabase.getInstance().getReference()
+                .child("Users")
+                        .child(auth.getUid())
+                                .child("profileInfo").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
+                            binding.postProfesstion.setText(profileModel.getProfession());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
                 /// TextWatcher for Enable and Disable POST button

@@ -104,6 +104,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     app:cornerRadius="@dimen/_5sdp"
                     android:padding="@dimen/_10sdp"
+                    android:backgroundTint="@color/black"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="Update"/>

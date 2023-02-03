@@ -55,7 +55,7 @@ public class settings extends AppCompatActivity {
         binding.logoutTv.setOnClickListener(view -> {
 
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(),profileEdit.class));
+            startActivity(new Intent(getApplicationContext(),login.class));
             overridePendingTransition(0,0);
         });
     }
