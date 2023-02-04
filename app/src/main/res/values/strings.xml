@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lezabook</string>
+    <string name="app_name">SayHello</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email">Email</string>
@@ -15,4 +15,5 @@
     <string name="update">Update</string>
     <string name="xcv">Edit Profile</string>
     <string name="this_user_did_not_write_anything_about_himself">This user did\'not write anything about himself.</string>
+    <string name="sayhello">SayHello</string>
 </resources>

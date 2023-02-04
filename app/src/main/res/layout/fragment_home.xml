@@ -30,7 +30,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:fontFamily="@font/baloo_thambi"
-                    android:text="Lezabook"
+                    android:text="@string/sayhello"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
