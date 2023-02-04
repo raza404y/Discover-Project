@@ -50,6 +50,7 @@ public class profileEdit extends AppCompatActivity {
             String profession = binding.professioneEt.getText().toString().trim();
             String relation = binding.relationEt.getText().toString().trim();
             String gender = binding.genderEt.getText().toString().trim();
+            String birthday = binding.birthdayEt.getText().toString().trim();
 
             if (country.isEmpty()){
                 showToast("Enter country");
@@ -59,9 +60,10 @@ public class profileEdit extends AppCompatActivity {
                 showToast("Enter your relation");
             }else if (gender.isEmpty()){
                 showToast("Enter your gender Male/Female");
+            }else if (birthday.isEmpty()) {
+                showToast("write your birthday date");
             }else {
-
-                editProfileModel model = new editProfileModel(country,profession,relation,gender);
+                editProfileModel model = new editProfileModel(country,profession,relation,birthday,gender);
                 enableProgressBar();
                 database.getReference()
                         .child("Users")

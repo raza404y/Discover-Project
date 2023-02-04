@@ -13,6 +13,7 @@
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.1495" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1355" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.174" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_birthday_cake.xml" value="0.1525" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_comment.xml" value="0.2115" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_create_a_story__1_.xml" value="0.2045" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/ic_dots.xml" value="0.2115" />
@@ -43,12 +44,14 @@
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/view_bg.xml" value="0.159" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/drawable/write_comment_background.xml" value="0.196" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_comments.xml" value="0.153125" />
-        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_home.xml" value="0.9" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_home.xml" value="0.18" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_personal_information.xml" value="0.16" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_profile_bio.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_profile_edit.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_profile_viev2.xml" value="0.19010416666666666" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_profile_view.xml" value="0.18" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_settings.xml" value="0.18" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
@@ -56,7 +59,7 @@
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/followers_rv_layout.xml" value="0.22" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_bell.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_home.xml" value="0.18" />
-        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/fragment_upload.xml" value="0.2" />
         <entry key="..\:/Android Projects/inshta/app/src/main/res/layout/notification_rv_layout.xml" value="0.15" />

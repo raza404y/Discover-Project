@@ -2,17 +2,11 @@ package com.example.inshta.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -29,15 +23,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.makeramen.roundedimageview.RoundedImageView;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
@@ -143,6 +131,15 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
                             });
                         }
+//
+//                        holder.binding.postProfileImage.setOnClickListener(view -> {
+//
+//                            Intent intent = new Intent(context.getApplicationContext(), profileViev2.class);
+//                            intent.putExtra("postid",model.getPostId());
+//                            context.startActivity(intent);
+//
+//                        });
+
                         holder.binding.commentsTV.setOnClickListener(view -> {
 
                             Intent intent = new Intent(context.getApplicationContext(), commentsActivity.class);

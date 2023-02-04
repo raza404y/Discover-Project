@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:diagonal="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/container"
+    android:fillViewport="true"
+    android:contentDescription="@string/app_name"
+    tools:context=".Activities.profileView">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profileToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        diagonal:title="Profile"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/uploadCoverImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_140sdp"
+            android:src="@drawable/cover_placeholder"
+            android:scaleType="centerCrop"
+            android:background="#F1EEEE"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintHorizontal_bias="0.0"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toTopOf="parent"
+            />
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/uploadCoverImage"-->
+<!--            android:layout_width="@dimen/_27sdp"-->
+<!--            android:layout_height="@dimen/_27sdp"-->
+<!--            android:background="@drawable/profile_pic_upload_view"-->
+<!--            android:padding="@dimen/_4sdp"-->
+<!--            android:contentDescription="@string/app_name"-->
+<!--            android:layout_marginEnd="@dimen/_15sdp"-->
+<!--            android:layout_marginBottom="@dimen/_12sdp"-->
+<!--            android:src="@drawable/ic_outline_photo_camera_24"-->
+<!--            diagonal:layout_constraintBottom_toBottomOf="@+id/uploadCoverImageView"-->
+<!--            diagonal:layout_constraintEnd_toEndOf="parent" />-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileViewUserprofile"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/profile_placeholder"
+            diagonal:civ_border_color="@color/white"
+            diagonal:civ_border_width="@dimen/_2sdp"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/uploadCoverImageView"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintHorizontal_bias="0.071"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/uploadCoverImageView"
+            diagonal:layout_constraintVertical_bias="0.504" />
+
+<!--        <View-->
+<!--            android:id="@+id/view5"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="@drawable/profile_pic_upload_view"-->
+<!--            diagonal:layout_constraintBottom_toBottomOf="@+id/profileImageUpload"-->
+<!--            diagonal:layout_constraintEnd_toEndOf="@+id/profileImageUpload"-->
+<!--            diagonal:layout_constraintStart_toStartOf="@+id/profileImageUpload"-->
+<!--            diagonal:layout_constraintTop_toTopOf="@+id/profileImageUpload" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/profileImageUpload"-->
+<!--            android:layout_width="@dimen/_25sdp"-->
+<!--            android:layout_height="@dimen/_25sdp"-->
+<!--            android:padding="@dimen/_4sdp"-->
+<!--            android:src="@drawable/ic_outline_photo_camera_24"-->
+<!--            diagonal:layout_constraintBottom_toBottomOf="@+id/profileViewUserprofile"-->
+<!--            diagonal:layout_constraintEnd_toEndOf="@+id/profileViewUserprofile"-->
+<!--            diagonal:layout_constraintHorizontal_bias="0.858"-->
+<!--            diagonal:layout_constraintStart_toStartOf="@+id/profileViewUserprofile"-->
+<!--            android:contentDescription="@string/app_name" />-->
+
+        <TextView
+            android:id="@+id/profileUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/_3sdp"
+            android:text="Bill Gates"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintStart_toStartOf="@+id/profileViewUserprofile"
+            diagonal:layout_constraintTop_toBottomOf="@+id/profileViewUserprofile" />
+
+
+        <TextView
+            android:id="@+id/bioTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="center"
+            android:hint="@string/this_user_did_not_write_anything_about_himself"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@color/comments_text_color"
+            android:textColorHint="@color/comments_text_color"
+            android:textSize="@dimen/_13ssp"
+            diagonal:layout_constraintEnd_toEndOf="@+id/profileUsername"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/profileUsername" />
+
+        <TextView
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey2"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="You can edit your all public detail from settings"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/bioTv" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_9sdp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_global3"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="Country. "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/countryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not added"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/textView4"
+            diagonal:layout_constraintStart_toEndOf="@+id/textView4"
+            diagonal:layout_constraintTop_toTopOf="@+id/textView4" />
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:drawableStart="@drawable/ic_job"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="Favourite Hobby. "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/professionTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not added"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/textView8"
+            diagonal:layout_constraintStart_toEndOf="@+id/textView8"
+            diagonal:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView8dsf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_filled_heart2"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="Relationship. "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:drawableStart="@drawable/ic_birthday_cake"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="Birthday. "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            diagonal:layout_constraintStart_toStartOf="@+id/textView8dsf"
+            diagonal:layout_constraintTop_toBottomOf="@+id/textView8dsf" />
+
+        <TextView
+            android:id="@+id/birthdayTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not added"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/textView3"
+            diagonal:layout_constraintStart_toEndOf="@+id/textView3"
+            diagonal:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/relationTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not added"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/textView8dsf"
+            diagonal:layout_constraintStart_toEndOf="@+id/textView8dsf"
+            diagonal:layout_constraintTop_toTopOf="@+id/textView8dsf" />
+
+
+        <TextView
+            android:id="@+id/genderTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_gender1"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:text=""
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            diagonal:layout_constraintStart_toStartOf="@+id/textView3"
+            diagonal:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+        <TextView
+            android:id="@+id/textView4sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="Followers."
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/genderTv" />
+
+        <TextView
+            android:id="@+id/profileFollowerCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_8sdp"
+            diagonal:layout_constraintBottom_toBottomOf="@+id/textView4sd"
+            diagonal:layout_constraintStart_toEndOf="@+id/textView4sd"
+            diagonal:layout_constraintTop_toTopOf="@+id/textView4sd" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/followersRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:paddingStart="@dimen/_5sdp"
+            diagonal:layout_constraintEnd_toEndOf="parent"
+            diagonal:layout_constraintHorizontal_bias="0.0"
+            diagonal:layout_constraintStart_toStartOf="parent"
+            diagonal:layout_constraintTop_toBottomOf="@+id/textView4sd" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+

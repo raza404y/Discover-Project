@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.inshta.Activities.profileBio;
+import com.example.inshta.Activities.profileEdit;
 import com.example.inshta.Adapters.postAdapter;
 import com.example.inshta.Adapters.profileFollowerAdapter;
 import com.example.inshta.Models.Users;
@@ -107,6 +108,7 @@ public class profileFragment extends Fragment {
         binding.profileImageUpload.setOnClickListener(view -> openGalleryForProfile());
         binding.profilePicture.setOnClickListener(view -> openGalleryForProfile());
 
+        // getting user all profile details from the database for example profile pic , cover pic and name etc.....
 
         database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -151,8 +153,7 @@ public class profileFragment extends Fragment {
                     }
                 });
 
-        ///// Getting profile information from database
-
+        ///// Getting public profile details from database from example country profession etc.......
 
         database.getReference()
                 .child("Users")
@@ -168,15 +169,11 @@ public class profileFragment extends Fragment {
                                 binding.countryTv.setText(profileModel.getCountry());
                                 binding.relationTv.setText(profileModel.getRelation());
                                 binding.genderTv.setText(profileModel.getGender());
-                                if(profileModel.getProfession()==null){
-                                    binding.professionTv.setText("Profession not added");
-                                }else {
-                                    binding.professionTv.setText(profileModel.getProfession());
-
+                                binding.professionTv.setText(profileModel.getProfession());
+                                binding.birthdayTv.setText(profileModel.getBirthday());
                                 }
                             }
 
-                        }
                     }
 
                     @Override
@@ -191,7 +188,11 @@ public class profileFragment extends Fragment {
             getActivity().overridePendingTransition(0,0);
 
         });
+        binding.editprofileButton.setOnClickListener(view -> {
+            startActivity(new Intent(getContext(), profileEdit.class));
+        });
 
+        // getting user profile bio
 
         database.getReference()
                 .child("Users")

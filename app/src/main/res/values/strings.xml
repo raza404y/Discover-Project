@@ -14,4 +14,5 @@
     <string name="male_or_female">Male or Female?</string>
     <string name="update">Update</string>
     <string name="xcv">Edit Profile</string>
+    <string name="this_user_did_not_write_anything_about_himself">This user did\'not write anything about himself.</string>
 </resources>

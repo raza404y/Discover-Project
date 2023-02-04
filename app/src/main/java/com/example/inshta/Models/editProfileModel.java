@@ -6,17 +6,27 @@ public class editProfileModel {
     String profession;
     String relation;
     String gender;
+    String birthday;
 
 
-    public editProfileModel(String country, String profession, String relation, String gender) {
+    public editProfileModel(String country, String profession, String relation,String birthday, String gender) {
         this.country = country;
         this.profession = profession;
         this.relation = relation;
+        this.birthday = birthday;
         this.gender = gender;
     }
 
 
     public editProfileModel() {
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getCountry() {

@@ -3,6 +3,7 @@ package com.example.inshta.Adapters;
 import static androidx.core.content.ContextCompat.getDrawable;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Activities.profileView;
 import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.editProfileModel;
@@ -58,6 +60,8 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
         holder.binding.followerUsername.setText(users.getName());
         holder.binding.followerProfession.setText(users.getProfession2());
 
+        // uploading user data into database whenever he/she will click on follow button
+
         holder.binding.followBtn.setOnClickListener(view -> {
 
             profileFollowersModel follow = new profileFollowersModel();
@@ -102,7 +106,7 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
 
         });
 
-//        aik aur node add karo
+//       getting all users (followers from database)
         FirebaseDatabase.getInstance().getReference()
                 .child("Users")
                 .child(users.getUserId())
@@ -123,7 +127,35 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
 
                     }
                 });
+
+        /// When some will click on user profile image a new activity will open and will show the user whole profile
+
+        holder.binding.followerProfilePic.setOnClickListener(view -> {
+
+           Intent intent = new Intent(context.getApplicationContext(),profileView.class);
+           intent.putExtra("userid",users.getUserId());
+           context.startActivity(intent);
+
+        });
+
+        holder.binding.followerUsername.setOnClickListener(view -> {
+
+            Intent intent = new Intent(context.getApplicationContext(),profileView.class);
+            intent.putExtra("userid",users.getUserId());
+            context.startActivity(intent);
+
+        });
+        holder.binding.followerProfession.setOnClickListener(view -> {
+
+            Intent intent = new Intent(context.getApplicationContext(),profileView.class);
+            intent.putExtra("userid",users.getUserId());
+            context.startActivity(intent);
+
+        });
+
     }
+
+
 
     @Override
     public int getItemCount() {

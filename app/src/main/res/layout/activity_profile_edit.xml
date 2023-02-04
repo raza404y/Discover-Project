@@ -71,6 +71,21 @@
                 android:maxLength="15"/>
 
             <EditText
+                android:id="@+id/birthdayEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Birthday date ?"
+                android:background="@drawable/edit_profile_bg"
+                android:padding="@dimen/_10sdp"
+                android:inputType="text"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:maxLength="13"/>
+
+            <EditText
                 android:id="@+id/genderEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
