@@ -193,13 +193,16 @@
 
             <TextView
                 android:id="@+id/professionTv"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Not added"
-                android:textStyle="bold"
-                android:textSize="@dimen/_12ssp"
+                android:text="Cons collecting and reading books"
                 android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:paddingEnd="@dimen/_8sdp"
+                android:singleLine="true"
                 diagonal:layout_constraintBottom_toBottomOf="@+id/textView8"
+                diagonal:layout_constraintEnd_toEndOf="parent"
                 diagonal:layout_constraintStart_toEndOf="@+id/textView8"
                 diagonal:layout_constraintTop_toTopOf="@+id/textView8" />
 

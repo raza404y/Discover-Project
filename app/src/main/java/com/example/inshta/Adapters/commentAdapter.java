@@ -54,20 +54,22 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.viewHold
                 .child(model.getCommentedBy()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Users users = snapshot.getValue(Users.class);
-                        Glide.with(context)
-                                .load(users.getProfile())
-                                .placeholder(R.drawable.profile_placeholder)
-                                .into(holder.binding.commentUserPic);
-                        holder.binding.commentText.setText(Html.fromHtml( "<b>"+users.getName()+"</b>"+" " + model.getCommentText()));
+                        if (snapshot.exists()) {
+                            Users users = snapshot.getValue(Users.class);
+                            Glide.with(context)
+                                    .load(users.getProfile())
+                                    .placeholder(R.drawable.profile_placeholder)
+                                    .into(holder.binding.commentUserPic);
+                            holder.binding.commentText.setText(Html.fromHtml("<b>" + users.getName() + "</b>" + " " + model.getCommentText()));
 
-                        if (users.getFollowerCount()<10){
-                            holder.binding.blueTick.setVisibility(View.INVISIBLE);
-                            holder.binding.greenTick.setVisibility(View.INVISIBLE);
-                        }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
-                            holder.binding.greenTick.setVisibility(View.VISIBLE);
-                        }else {
-                            holder.binding.blueTick.setVisibility(View.VISIBLE);
+                            if (users.getFollowerCount() < 10) {
+                                holder.binding.blueTick.setVisibility(View.INVISIBLE);
+                                holder.binding.greenTick.setVisibility(View.INVISIBLE);
+                            } else if ((users.getFollowerCount() >= 10 && users.getFollowerCount() < 50)) {
+                                holder.binding.greenTick.setVisibility(View.VISIBLE);
+                            } else {
+                                holder.binding.blueTick.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
 

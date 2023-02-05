@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:padding="@dimen/_3sdp"
-            android:text="Bill Gates"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold"
@@ -162,7 +162,7 @@
             android:id="@+id/countryTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not added"
+            android:text="@string/not_addeda"
             android:textStyle="bold"
             android:textSize="@dimen/_12ssp"
             android:textColor="@color/black"
@@ -188,13 +188,16 @@
 
         <TextView
             android:id="@+id/professionTv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Not added"
-            android:textStyle="bold"
+            android:paddingEnd="@dimen/_8sdp"
+            android:singleLine="true"
+            android:text="@string/not_added"
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
             diagonal:layout_constraintBottom_toBottomOf="@+id/textView8"
+            diagonal:layout_constraintEnd_toEndOf="parent"
             diagonal:layout_constraintStart_toEndOf="@+id/textView8"
             diagonal:layout_constraintTop_toTopOf="@+id/textView8" />
 

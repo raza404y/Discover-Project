@@ -18,4 +18,8 @@
     <string name="sayhello">SayHello</string>
     <string name="what_s_on_your_mind">What\'s on your mind</string>
     <string name="add_to_your_post">Add to your post</string>
+    <string name="this_page_is_in_construction_very_soon_will_show_right_data">This page is in construction Very soon will show Right Data.</string>
+    <string name="not_added">Not Added</string>
+    <string name="not_addeda">Not added</string>
+    <string name="country">Country.</string>
 </resources>

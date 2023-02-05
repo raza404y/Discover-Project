@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,34 +27,22 @@ public class profileView2 extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        Intent intent = getIntent();
-        String postid = intent.getStringExtra("postid");
-
-        FirebaseDatabase.getInstance().getReference()
-                .child("posts")
-                .child(postid).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()){
-
-                            Users users = snapshot.getValue(Users.class);
-
-//
-//                            Glide.with(getApplicationContext())
-//                                    .load(users.getProfile())
-//                                    .placeholder(R.drawable.profile_placeholder)
-//                                    .into(binding.imageView3);
-                            binding.textView7.setText(users.getName());
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
 
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+        setSupportActionBar(binding.toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-                    }
-                });
+        binding.toolbar.setNavigationOnClickListener(view -> {
+
+            onBackPressed();
+            overridePendingTransition(0,0);
+
+        });
+
+
 
     }
 }

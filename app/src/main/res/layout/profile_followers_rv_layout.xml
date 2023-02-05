@@ -31,4 +31,27 @@
         app:layout_constraintStart_toStartOf="@+id/followerPicture"
         app:layout_constraintTop_toBottomOf="@+id/followerPicture" />
 
+    <ImageView
+        android:id="@+id/blueTick"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:src="@drawable/blue_tick"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/followerPicture"
+        app:layout_constraintEnd_toEndOf="@+id/followerPicture"
+        app:layout_constraintTop_toTopOf="@+id/followerPicture"
+        app:layout_constraintVertical_bias="0.88" />
+
+    <ImageView
+        android:id="@+id/greenTick"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:src="@drawable/green_tick"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/followerPicture"
+        app:layout_constraintEnd_toEndOf="@+id/followerPicture"
+        app:layout_constraintTop_toTopOf="@+id/followerPicture"
+        app:layout_constraintVertical_bias="0.88" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
