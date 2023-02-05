@@ -126,6 +126,16 @@ public class profileFragment extends Fragment {
                                 .into(binding.profilePicture);
                         binding.profileUsername.setText(users.getName());
                         binding.profileFollowerCountTV.setText(users.getFollowerCount() + "");
+
+                        if (users.getFollowerCount()<10){
+                            binding.blueTick.setVisibility(View.INVISIBLE);
+                            binding.greenTick.setVisibility(View.INVISIBLE);
+                        }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                            binding.greenTick.setVisibility(View.VISIBLE);
+                        }else {
+                            binding.blueTick.setVisibility(View.VISIBLE);
+                        }
+
                     }
                 }
             }
@@ -152,6 +162,10 @@ public class profileFragment extends Fragment {
 
                     }
                 });
+
+
+
+
 
         ///// Getting public profile details from database from example country profession etc.......
 

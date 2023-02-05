@@ -16,6 +16,7 @@ import com.example.inshta.Models.Users;
 import com.example.inshta.Models.postModel;
 import com.example.inshta.R;
 import com.example.inshta.databinding.PostRvLayoutBinding;
+import com.example.inshta.profileView2;
 import com.github.marlonlom.utilities.timeago.TimeAgo;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -69,6 +70,14 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
                            holder.binding.postUserName.setText(users.getName());
                            holder.binding.postProfession.setText(textTimePost + "");
 
+                           if (users.getFollowerCount()<10){
+                               holder.binding.blueTick.setVisibility(View.INVISIBLE);
+                               holder.binding.greenTick.setVisibility(View.INVISIBLE);
+                           }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                               holder.binding.greenTick.setVisibility(View.VISIBLE);
+                           }else {
+                               holder.binding.blueTick.setVisibility(View.VISIBLE);
+                           }
                        }
                     }
 
@@ -77,6 +86,7 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
                     }
                 });
+
 
 
         FirebaseDatabase.getInstance().getReference()
@@ -131,14 +141,14 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
                             });
                         }
-//
-//                        holder.binding.postProfileImage.setOnClickListener(view -> {
-//
-//                            Intent intent = new Intent(context.getApplicationContext(), profileViev2.class);
-//                            intent.putExtra("postid",model.getPostId());
-//                            context.startActivity(intent);
-//
-//                        });
+
+                        holder.binding.postProfileImage.setOnClickListener(view -> {
+
+                            Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
+                            intent.putExtra("postid",model.getPostId());
+                            context.startActivity(intent);
+
+                        });
 
                         holder.binding.commentsTV.setOnClickListener(view -> {
 

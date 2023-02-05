@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Inshta"
         tools:targetApi="31">
         <activity
+            android:name=".profileView2"
+            android:exported="false" />
+        <activity
             android:name=".Activities.profileView"
             android:exported="false" />
         <activity

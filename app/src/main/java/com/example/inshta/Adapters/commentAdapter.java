@@ -60,6 +60,15 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.viewHold
                                 .placeholder(R.drawable.profile_placeholder)
                                 .into(holder.binding.commentUserPic);
                         holder.binding.commentText.setText(Html.fromHtml( "<b>"+users.getName()+"</b>"+" " + model.getCommentText()));
+
+                        if (users.getFollowerCount()<10){
+                            holder.binding.blueTick.setVisibility(View.INVISIBLE);
+                            holder.binding.greenTick.setVisibility(View.INVISIBLE);
+                        }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                            holder.binding.greenTick.setVisibility(View.VISIBLE);
+                        }else {
+                            holder.binding.blueTick.setVisibility(View.VISIBLE);
+                        }
                     }
 
                     @Override

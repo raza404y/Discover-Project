@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.inshta.Adapters.profileFollowerAdapter;
@@ -77,7 +78,11 @@ public class profileView extends AppCompatActivity {
                                     .into(binding.uploadCoverImageView);
                             binding.profileUsername.setText(users.getName());
                             binding.profileFollowerCountTV.setText(users.getFollowerCount()+"");
-
+                            if (users.getFollowerCount()>10){
+                                binding.blueTick.setVisibility(View.VISIBLE);
+                            }else {
+                                binding.blueTick.setVisibility(View.INVISIBLE);
+                            }
                         }
 
                     }

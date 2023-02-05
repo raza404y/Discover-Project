@@ -99,6 +99,15 @@ public class commentsActivity extends AppCompatActivity {
                                     .placeholder(R.drawable.profile_placeholder)
                                     .into(binding.profileImage2);
                             binding.postUsername2.setText(users.getName());
+
+                            if (users.getFollowerCount()<10){
+                                binding.blueTick.setVisibility(View.INVISIBLE);
+                                binding.greenTick.setVisibility(View.INVISIBLE);
+                            }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                                binding.greenTick.setVisibility(View.VISIBLE);
+                            }else {
+                                binding.blueTick.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
                     @Override
@@ -109,9 +118,13 @@ public class commentsActivity extends AppCompatActivity {
 
 
         binding.sendCommentBtn.setOnClickListener(view -> {
-
+            String commentText = binding.writeCcomment.getText().toString().trim();
             commentsModel model = new commentsModel();
-            model.setCommentText(binding.writeCcomment.getText().toString().trim());
+            if (commentText.isEmpty()){
+                    return;
+            }else {
+                model.setCommentText(commentText);
+            }
             model.setCommentedAt(new Date().getTime());
             model.setCommentedBy(auth.getUid());
             

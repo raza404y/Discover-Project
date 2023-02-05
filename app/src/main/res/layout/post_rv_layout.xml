@@ -50,18 +50,39 @@
         android:id="@+id/postUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_7sdp"
         android:singleLine="true"
+        android:text=""
+        android:textColor="@color/black"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
-        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/postProfileImage"
-        app:layout_constraintEnd_toStartOf="@+id/postDots"
-        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toEndOf="@+id/postProfileImage"
         app:layout_constraintTop_toTopOf="@+id/postProfileImage"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.060000002" />
 
+
+    <ImageView
+        android:id="@+id/blueTick"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:src="@drawable/blue_tick"
+        android:visibility="gone"
+        android:layout_marginStart="@dimen/_4sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/postUserName"
+        app:layout_constraintStart_toEndOf="@+id/postUserName"
+        app:layout_constraintTop_toTopOf="@+id/postUserName" />
+
+    <ImageView
+        android:id="@+id/greenTick"
+        android:layout_width="@dimen/_14sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:src="@drawable/green_tick"
+        android:visibility="gone"
+        android:layout_marginStart="@dimen/_4sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/postUserName"
+        app:layout_constraintStart_toEndOf="@+id/postUserName"
+        app:layout_constraintTop_toTopOf="@+id/postUserName" />
 
     <TextView
         android:id="@+id/postProfession"
@@ -80,9 +101,9 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/postImage"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_250sdp"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/cover_placeholder"
+        android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,9 +157,9 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_2sdp"
+        android:layout_height="@dimen/_4sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:background="@color/viewColor"
+        android:background="@color/greyColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentsTV" />

@@ -67,6 +67,7 @@ public class searchFragment extends Fragment {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Users users = dataSnapshot.getValue(Users.class);
                         users.setUserId(dataSnapshot.getKey());
+                        users.getFollowerCount();
                         // if current user id not equals to firebase userId then it will hide our id
                         if (!dataSnapshot.getKey().equals(auth.getUid())) {
                             userList.add(users);

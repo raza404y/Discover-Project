@@ -60,7 +60,16 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
         holder.binding.followerUsername.setText(users.getName());
         holder.binding.followerProfession.setText(users.getProfession2());
 
-        // uploading user data into database whenever he/she will click on follow button
+        if (users.getFollowerCount()<10){
+            holder.binding.blueTick.setVisibility(View.INVISIBLE);
+            holder.binding.greenTick.setVisibility(View.INVISIBLE);
+        }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+            holder.binding.greenTick.setVisibility(View.VISIBLE);
+        }else {
+            holder.binding.blueTick.setVisibility(View.VISIBLE);
+        }
+
+                // uploading user data into database whenever he/she will click on follow button
 
         holder.binding.followBtn.setOnClickListener(view -> {
 

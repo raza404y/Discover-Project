@@ -68,6 +68,17 @@ public class notificationAdapter extends RecyclerView.Adapter<notificationAdapte
                                         .placeholder(R.drawable.profile_placeholder)
                                         .into(holder.binding.notificationProfilePic);
                                 holder.binding.notificationTime.setText(notificationTime);
+
+                                if (users.getFollowerCount()<10){
+                                    holder.binding.blueTick.setVisibility(View.INVISIBLE);
+                                    holder.binding.greenTick.setVisibility(View.INVISIBLE);
+                                }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                                    holder.binding.greenTick.setVisibility(View.VISIBLE);
+                                }else {
+                                    holder.binding.blueTick.setVisibility(View.VISIBLE);
+                                }
+
+
                                 if (type.equals("like")) {
                                     holder.binding.notificatioText.setText(Html.fromHtml("<b>" + users.getName() + "</b> " + "liked your post."));
                                 } else if (type.equals("comment")) {

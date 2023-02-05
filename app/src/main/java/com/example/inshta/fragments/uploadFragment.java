@@ -83,6 +83,15 @@ public class uploadFragment extends Fragment {
                             .placeholder(R.drawable.profile_placeholder)
                             .into(binding.postProfile);
                     binding.postUsername.setText(users.getName());
+
+                    if (users.getFollowerCount()<10){
+                        binding.blueTick.setVisibility(View.INVISIBLE);
+                        binding.greenTick.setVisibility(View.INVISIBLE);
+                    }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
+                        binding.greenTick.setVisibility(View.VISIBLE);
+                    }else {
+                        binding.blueTick.setVisibility(View.VISIBLE);
+                    }
                 //    binding.postProfesstion.setText(users.getProfession());
                 }
             }
