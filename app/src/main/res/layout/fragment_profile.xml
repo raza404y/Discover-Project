@@ -195,7 +195,7 @@
                 android:id="@+id/professionTv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cons collecting and reading books"
+                android:text="Not added"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
