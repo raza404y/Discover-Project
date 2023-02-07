@@ -18,6 +18,14 @@
         android:theme="@style/Theme.Inshta"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.notification_activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.upload_post"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".profileView2"
             android:exported="false" />
         <activity
@@ -26,7 +34,6 @@
         <activity
             android:name=".Activities.splash_screen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,10 +73,7 @@
             android:name=".Activities.login"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-
-
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Activities.home"
             android:exported="false"

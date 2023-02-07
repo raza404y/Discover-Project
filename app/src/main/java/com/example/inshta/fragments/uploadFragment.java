@@ -17,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -28,9 +30,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Adapters.storyAdapter;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.editProfileModel;
 import com.example.inshta.Models.postModel;
+import com.example.inshta.Models.story;
+import com.example.inshta.Models.userStories;
 import com.example.inshta.R;
 import com.example.inshta.databinding.FragmentUploadBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,6 +50,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -58,9 +64,8 @@ public class uploadFragment extends Fragment {
     FragmentUploadBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
+    Uri storyUri;
     FirebaseStorage storage;
-
-    Uri urlPostImage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,114 +73,78 @@ public class uploadFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentUploadBinding.inflate(inflater, container, false);
 
-
-        database = FirebaseDatabase.getInstance();
-        auth = FirebaseAuth.getInstance();
-        storage = FirebaseStorage.getInstance();
-
-        database.getReference().child("Users").child(auth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (getActivity() != null){
-                    Users users = snapshot.getValue(Users.class);
-                    Glide.with(getContext())
-                            .load(users.getProfile())
-                            .placeholder(R.drawable.profile_placeholder)
-                            .into(binding.postProfile);
-                    binding.postUsername.setText(users.getName());
-
-                    if (users.getFollowerCount()<10){
-                        binding.blueTick.setVisibility(View.INVISIBLE);
-                        binding.greenTick.setVisibility(View.INVISIBLE);
-                    }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
-                        binding.greenTick.setVisibility(View.VISIBLE);
-                    }else {
-                        binding.blueTick.setVisibility(View.VISIBLE);
-                    }
-                //    binding.postProfesstion.setText(users.getProfession());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        FirebaseDatabase.getInstance().getReference()
-                .child("Users")
-                        .child(auth.getUid())
-                                .child("profileInfo").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
-                            binding.postProfesstion.setText(profileModel.getProfession());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-                /// TextWatcher for Enable and Disable POST button
-        binding.postDescription.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                String description = binding.postDescription.getText().toString().trim();
-
-                if (!description.isEmpty()) {
-                    binding.btnPost.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.post_button_active));
-                    binding.btnPost.setEnabled(true);
-                    binding.btnPost.setTextColor(Color.parseColor("#ffffff"));
-                }
-                else {
-                    binding.btnPost.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.follow_active_btn));
-                    binding.btnPost.setEnabled(false);
-                    binding.btnPost.setTextColor(Color.parseColor("#8DAAA5A5"));
-                }
-               // 8DAAA5A5
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-
-        /// Picking Post image from Gallery
-
-        binding.postPickImage.setOnClickListener(view -> {
+        binding.pickStoryFromGallery.setOnClickListener(view -> {
 
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            pickPostImage.launch(intent);
+            pickStory.launch(intent);
 
         });
 
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
-        /// Uploading Post into database
 
-        binding.btnPost.setOnClickListener(view -> {
-            enableProgressBar();
+        ArrayList<story> list = new ArrayList<>();
+        storyAdapter adapter = new storyAdapter(list,getContext());
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false);
+        binding.storyRecyclerView.setLayoutManager(layoutManager);
+        binding.storyRecyclerView.setNestedScrollingEnabled(false);
+        layoutManager.canScrollHorizontally();
+         binding.storyRecyclerView.setAdapter(adapter);
+
+         enableProgressbar2();
+         database.getReference()
+                 .child("stories").addValueEventListener(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                         if (snapshot.exists()){
+                             for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                                 story storyy = new story();
+                                 storyy.setStoryBy(snapshot1.getKey());
+                                 storyy.setStoryAt(snapshot1.child("postedBy").getValue(long.class));
+                                ArrayList<userStories> stories = new ArrayList<>();
+
+                                for (DataSnapshot snapshot2 : snapshot1.child("userStories").getChildren()){
+                                    userStories userStoriess = snapshot2.getValue(userStories.class);
+                                    stories.add(userStoriess);
+                                }
+                                storyy.setStories(stories);
+                                list.add(storyy);
+                             }
+                             adapter.notifyDataSetChanged();
+                             disableProgressBar2();
+                         }
+                     }
+
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError error) {
+
+                     }
+                 });
+
+
+
+
+        return binding.getRoot();
+    }
+
+    ActivityResultLauncher<Intent> pickStory = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result -> {
+
+        if (result.getResultCode()==RESULT_OK && result.getData() != null){
+
+            storyUri = result.getData().getData();
+          //  binding.pickStoryFromGallery.setImageURI(storyUri);
+
+
             StorageReference reference = storage.getReference()
-                    .child("posts").child(auth.getUid())
+                    .child("stories")
+                    .child(auth.getUid())
                     .child(new Date().getTime()+"");
-                if (urlPostImage==null){
-                    Toast.makeText(getContext(), "Please select an image", Toast.LENGTH_SHORT).show();
-                    disableProgressBar();
-                }else {
 
-            reference.putFile(urlPostImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            enableProgressbar();
+            reference.putFile(storyUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
@@ -183,63 +152,52 @@ public class uploadFragment extends Fragment {
                         @Override
                         public void onSuccess(Uri uri) {
 
-                            postModel model = new postModel();
-                            model.setPostImage(uri.toString());
-                            model.setPostedBy(auth.getUid());
-                            model.setPostAt(new Date().getTime());
-                            model.setPostDescription(binding.postDescription.getText().toString().trim());
+                            story mstory = new story();
+                            mstory.setStoryAt(new Date().getTime());
 
-                            database.getReference().child("posts").push()
-                                    .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            database.getReference()
+                                    .child("stories")
+                                    .child(auth.getUid())
+                                    .child("postedBy")
+                                    .setValue(mstory.getStoryAt()).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
-                                            Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
-                                            binding.postDescription.setText("");
-                                            binding.postImageView.setVisibility(View.INVISIBLE);
+                                            userStories stories = new userStories(uri.toString(),mstory.getStoryAt());
 
+                                            database.getReference()
+                                                    .child("stories")
+                                                    .child(auth.getUid())
+                                                    .child("userStories")
+                                                    .push()
+                                                    .setValue(stories);
                                             disableProgressBar();
+                                             //   binding.pickStoryFromGallery.setImageResource(R.drawable.create_story);
                                         }
                                     });
-
                         }
                     });
 
                 }
             });
-                }
-
-        });
-
-        return binding.getRoot();
-    }
-
-    ActivityResultLauncher<Intent> pickPostImage = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),result -> {
-
-        if (result.getResultCode()==RESULT_OK && result.getData()!=null){
-
-             urlPostImage = result.getData().getData();
-
-           try {
-
-               InputStream inputStream = getContext().getContentResolver().openInputStream(urlPostImage);
-               Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-               binding.postImageView.setImageBitmap(bitmap);
-               binding.postImageView.setVisibility(View.VISIBLE);
-
-           }catch (Exception e){
-               e.printStackTrace();
-           }
         }
-
 
     });
 
-    private void enableProgressBar(){
+    private void enableProgressbar(){
         binding.progressBar.setVisibility(View.VISIBLE);
-        binding.btnPost.setVisibility(View.INVISIBLE);
+        binding.pickStoryFromGallery.setVisibility(View.INVISIBLE);
     }
     private void disableProgressBar(){
         binding.progressBar.setVisibility(View.INVISIBLE);
-        binding.btnPost.setVisibility(View.VISIBLE);
+        binding.pickStoryFromGallery.setVisibility(View.VISIBLE);
+    }
+
+    private void enableProgressbar2(){
+        binding.progressBar2.setVisibility(View.VISIBLE);
+        binding.storyRecyclerView.setVisibility(View.INVISIBLE);
+    }
+    private void disableProgressBar2(){
+        binding.progressBar2.setVisibility(View.INVISIBLE);
+        binding.storyRecyclerView.setVisibility(View.VISIBLE);
     }
 }

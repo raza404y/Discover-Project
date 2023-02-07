@@ -21,6 +21,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:paddingBottom="@dimen/_4sdp"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -40,8 +41,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/homeProfileImage"
-                    android:layout_width="@dimen/_36sdp"
-                    android:layout_height="@dimen/_36sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
@@ -51,6 +52,19 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_bell"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:padding="@dimen/_6sdp"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    app:layout_constraintBottom_toBottomOf="@+id/homeProfileImage"
+                    app:layout_constraintEnd_toStartOf="@+id/homeProfileImage"
+                    app:layout_constraintTop_toTopOf="@+id/homeProfileImage" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,65 +96,114 @@
                 android:orientation="vertical">
 
 
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+<!--                <HorizontalScrollView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content">-->
 
-                    <LinearLayout
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <FrameLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:gravity="center"-->
+<!--                            android:animateLayoutChanges="true">-->
+
+
+<!--                            <com.makeramen.roundedimageview.RoundedImageView-->
+<!--                                android:id="@+id/pickStoryFromGallery"-->
+<!--                                android:layout_width="@dimen/_125sdp"-->
+<!--                                android:layout_height="@dimen/_90sdp"-->
+<!--                                android:layout_marginStart="@dimen/_8sdp"-->
+<!--                                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                                android:scaleType="centerCrop"-->
+<!--                                android:src="@drawable/create_story"-->
+<!--                                app:riv_corner_radius="@dimen/_15sdp" />-->
+
+<!--                            <ProgressBar-->
+<!--                                android:id="@+id/storyProgressBar"-->
+<!--                                android:layout_width="@dimen/_35sdp"-->
+<!--                                android:layout_height="@dimen/_35sdp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:visibility="gone"-->
+<!--                                />-->
+
+<!--                        </FrameLayout>-->
+
+
+
+<!--                            <androidx.recyclerview.widget.RecyclerView-->
+<!--                                android:id="@+id/storyRecyclerView"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="@dimen/_95sdp"-->
+<!--                                android:layout_marginStart="@dimen/_5sdp"-->
+<!--                                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                android:layout_marginEnd="@dimen/_8sdp"-->
+<!--                                android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                                tools:listitem="@layout/stroy_rv_layout" />-->
+
+
+
+<!--                    </LinearLayout>-->
+<!--                </HorizontalScrollView>-->
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_8sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/prfilePicture"
+                        android:layout_width="@dimen/_43sdp"
+                        android:layout_height="@dimen/_43sdp"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:src="@drawable/profile_placeholder"
+                        app:civ_border_color="@color/instalastclor"
+                        app:civ_border_width="@dimen/_1sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/uploadPostTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@drawable/tell_somthing_bg"
+                        android:fontFamily="@font/roboto"
+                        android:padding="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:hint="@string/say_to_the_world_feel_free"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/prfilePicture"
+                        app:layout_constraintStart_toEndOf="@+id/prfilePicture"
+                        app:layout_constraintTop_toTopOf="@+id/prfilePicture" />
 
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:animateLayoutChanges="true">
+                    <ImageView
+                        android:id="@+id/uploadPostPicView"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@drawable/tell_somthing_bg"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_add_image"
+                        app:layout_constraintBottom_toBottomOf="@+id/uploadPostTv"
+                        app:layout_constraintStart_toEndOf="@+id/uploadPostTv"
+                        app:layout_constraintTop_toTopOf="@+id/uploadPostTv" />
 
-
-                            <com.makeramen.roundedimageview.RoundedImageView
-                                android:id="@+id/pickStoryFromGallery"
-                                android:layout_width="@dimen/_125sdp"
-                                android:layout_height="@dimen/_90sdp"
-                                android:layout_marginStart="@dimen/_8sdp"
-                                android:layout_marginTop="@dimen/_10sdp"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/create_story"
-                                app:riv_corner_radius="@dimen/_15sdp" />
-
-                            <ProgressBar
-                                android:id="@+id/storyProgressBar"
-                                android:layout_width="@dimen/_35sdp"
-                                android:layout_height="@dimen/_35sdp"
-                                android:layout_gravity="center"
-                                android:visibility="gone"
-                                />
-
-                        </FrameLayout>
-
-
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/storyRecyclerView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_95sdp"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_marginEnd="@dimen/_8sdp"
-                                android:layout_marginBottom="@dimen/_10sdp"
-                                tools:listitem="@layout/stroy_rv_layout" />
-
-
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1sdp"
-                    android:background="@color/viewColor"
+                    android:layout_height="@dimen/_3sdp"
+                    android:background="@color/greyColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />

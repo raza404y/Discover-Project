@@ -16,7 +16,7 @@
     <string name="xcv">Edit Profile</string>
     <string name="this_user_did_not_write_anything_about_himself">This user did\'not write anything about himself.</string>
     <string name="sayhello">SayHello</string>
-    <string name="what_s_on_your_mind">What\'s on your mind</string>
+    <string name="what_s_on_your_mind">What\'s on your mind...</string>
     <string name="add_to_your_post">Add to your post</string>
     <string name="this_page_is_in_construction_very_soon_will_show_right_data">This page is in construction Very soon will show Right Data.</string>
     <string name="not_added">Not Added</string>
@@ -24,4 +24,7 @@
     <string name="country">Country.</string>
     <string name="search">Search user by name</string>
     <string name="resend_verification_link"><u>Resend verification link</u></string>
+    <string name="share_moments_with_nthe_world">Share moments with\nthe world</string>
+    <string name="say_to_the_world_feel_free">Say to the world feel free...</string>
+    <string name="share_your_best_moments">Share your moments</string>
 </resources>

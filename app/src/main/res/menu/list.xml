@@ -8,22 +8,17 @@
         android:checked="true"
         android:color="@color/instalastclor"/>
 
-    <item
-        android:id="@+id/bell"
-        android:icon="@drawable/ic_bell"
-        android:title="Rings"
-        android:color="@color/instalastclor"/>
 
      <item
         android:id="@+id/upload"
-        android:icon="@drawable/ic_plus"
-        android:title="Upload"
+        android:icon="@drawable/ic_story"
+        android:title="Moments"
         android:color="@color/instalastclor"/>
 
      <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_search"
-        android:title="Search"
+        android:icon="@drawable/ic_people"
+        android:title="Peoples"
         android:color="@color/instalastclor"/>
 
      <item
