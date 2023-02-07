@@ -1,14 +1,22 @@
 package com.example.inshta.fragments;
 
+import android.content.ClipData;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.inshta.Adapters.userAdapter;
 import com.example.inshta.Models.Users;
@@ -21,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class searchFragment extends Fragment {
@@ -33,7 +42,8 @@ public class searchFragment extends Fragment {
     FragmentSearchBinding binding;
     FirebaseDatabase database;
     FirebaseAuth auth;
-
+    userAdapter adapter;
+    ArrayList<Users> userList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,15 +53,8 @@ public class searchFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        ArrayList<Users> userList = new ArrayList<>();
-
-
-//         yr comment kro code mujy pher pata chal jay errror ka
-//        ok
-//        adapter to on datachange k andar le k jana hai
-
-        //Perfect check out the whatsapp
-        userAdapter adapter = new userAdapter(userList, getContext());
+        userList = new ArrayList<>();
+        adapter = new userAdapter(userList, getContext());
         binding.followersRecyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setReverseLayout(true);
@@ -85,7 +88,35 @@ public class searchFragment extends Fragment {
             }
         });
 
+       // ((AppCompatActivity) getActivity()).setSupportActionBar(binding.searchToolbar123);
+        binding.searchBar.clearFocus();
+        binding.searchBar.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+               filterList(newText);
+                return true;
+            }
+        });
 
         return binding.getRoot();
+    }
+
+    private void filterList(String newText) {
+        ArrayList<Users> fileterdlist = new ArrayList<>();
+        for (Users item : userList){
+            if (item.getName().toLowerCase().contains(newText.toLowerCase())){
+                fileterdlist.add(item);
+            }
+        }
+        if (fileterdlist.isEmpty()){
+            Toast.makeText(getContext(), "No user found", Toast.LENGTH_SHORT).show();
+        }else {
+            adapter.setFilterdList(fileterdlist);
+        }
     }
 }

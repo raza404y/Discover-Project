@@ -63,11 +63,11 @@ public class SignUp extends AppCompatActivity {
 
 
         if (name.isEmpty()){
-                showToast("Enter you name");
+                showToast("Enter your name");
         }else if(profession.isEmpty()) {
             showToast("Enter profession");
         }else if (email.isEmpty()){
-                showToast("Enter you email");
+                showToast("Enter your email");
         } else if (password.isEmpty()){
                 showToast("Enter your password");
         } else if (!email.matches(emailPattern)){
@@ -83,21 +83,37 @@ public class SignUp extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()){
+
+
                         Users users = new Users(name,profession,email,password);
                         String id = task.getResult().getUser().getUid();
-                        DatabaseReference reference = database.getReference().child("Users").child(id);
-                        reference.setValue(users);
 
-                        showToast("Account created successfully");
-                        disableProgressBar();
-                        Intent intent = new Intent(getApplicationContext(),home.class);
-                        startActivity(intent);
-                        finish();
+                        auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                DatabaseReference reference = database.getReference().child("Users").child(id);
+                                reference.setValue(users);
+
+                                if (task.isSuccessful()){
+                                    disableProgressBar();
+                                    Intent intent = new Intent(SignUp.this,login.class);
+                                    startActivity(intent);
+                                    finish();
+                                    showToast("Account created Successfully , Please verify your email");
+                                }
+                                else {
+                                    Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                        });
+
 
 
                     }else {
                                 disableProgressBar();
-                                showToast("Email already registered");
+                        Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                 }

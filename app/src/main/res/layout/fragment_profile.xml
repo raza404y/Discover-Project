@@ -275,19 +275,20 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/editprofileButton"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_42sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:backgroundTint="@color/greyColor"
-                diagonal:rippleColor="@color/white"
-                diagonal:cornerRadius="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp"
                 android:text="Edit Profile"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                diagonal:cornerRadius="@dimen/_5sdp"
                 diagonal:layout_constraintEnd_toEndOf="parent"
                 diagonal:layout_constraintStart_toStartOf="parent"
-                diagonal:layout_constraintTop_toBottomOf="@+id/genderTv" />
+                diagonal:layout_constraintTop_toBottomOf="@+id/genderTv"
+                diagonal:rippleColor="@color/white" />
 
             <TextView
                 android:id="@+id/textView4sd"

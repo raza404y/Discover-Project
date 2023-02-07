@@ -16,9 +16,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:fillViewport="true"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,76 +29,76 @@
                 android:id="@+id/countryEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/your_country_name"
-                android:background="@drawable/edit_profile_bg"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/edit_profile_bg"
+                android:hint="@string/your_country_name"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:maxLength="20"/>
+                android:inputType="text"
+                android:maxLength="20"
+                android:padding="@dimen/_10sdp" />
 
             <EditText
                 android:id="@+id/professioneEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/favourite_hobby"
-                android:background="@drawable/edit_profile_bg"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/edit_profile_bg"
+                android:hint="@string/favourite_hobby"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:maxLength="30"/>
+                android:inputType="text"
+                android:maxLength="30"
+                android:padding="@dimen/_10sdp" />
 
             <EditText
                 android:id="@+id/relationEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/current_relationship_status"
-                android:background="@drawable/edit_profile_bg"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/edit_profile_bg"
+                android:hint="@string/current_relationship_status"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:maxLength="15"/>
+                android:inputType="text"
+                android:maxLength="15"
+                android:padding="@dimen/_10sdp" />
 
             <EditText
                 android:id="@+id/birthdayEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Birthday date ?"
-                android:background="@drawable/edit_profile_bg"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/edit_profile_bg"
+                android:hint="Birthday date ?"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:maxLength="13"/>
+                android:inputType="text"
+                android:maxLength="13"
+                android:padding="@dimen/_10sdp" />
 
             <EditText
                 android:id="@+id/genderEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/male_or_female"
-                android:background="@drawable/edit_profile_bg"
-                android:padding="@dimen/_10sdp"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/edit_profile_bg"
+                android:hint="@string/male_or_female"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
-                android:maxLength="8"/>
+                android:inputType="text"
+                android:maxLength="8"
+                android:padding="@dimen/_10sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -108,21 +108,21 @@
                 <ProgressBar
                     android:id="@+id/progressBar"
                     android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
-                    android:layout_height="@dimen/_25sdp"/>
+                    android:visibility="gone" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/updateButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10sdp"
-                    app:cornerRadius="@dimen/_5sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:backgroundTint="@color/black"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:text="@string/update"/>
+                    android:backgroundTint="@color/black"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/update"
+                    app:cornerRadius="@dimen/_5sdp" />
 
 
             </FrameLayout>

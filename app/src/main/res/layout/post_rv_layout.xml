@@ -103,7 +103,6 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/_250sdp"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

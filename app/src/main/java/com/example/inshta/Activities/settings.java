@@ -3,6 +3,7 @@ package com.example.inshta.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -55,6 +56,12 @@ public class settings extends AppCompatActivity {
         binding.logoutTv.setOnClickListener(view -> {
 
             FirebaseAuth.getInstance().signOut();
+
+            SharedPreferences sharedPreferences = getSharedPreferences("user",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
+
             startActivity(new Intent(getApplicationContext(),login.class));
             overridePendingTransition(0,0);
         });

@@ -42,6 +42,7 @@ public class splash_screen extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(getApplicationContext(),login.class));
+                overridePendingTransition(0,0);
             }
         },3000);
 

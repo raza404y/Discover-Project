@@ -22,4 +22,6 @@
     <string name="not_added">Not Added</string>
     <string name="not_addeda">Not added</string>
     <string name="country">Country.</string>
+    <string name="search">Search user by name</string>
+    <string name="resend_verification_link"><u>Resend verification link</u></string>
 </resources>

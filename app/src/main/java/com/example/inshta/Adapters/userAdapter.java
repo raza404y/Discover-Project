@@ -4,9 +4,12 @@ import static androidx.core.content.ContextCompat.getDrawable;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
 
@@ -40,6 +44,12 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
     public userAdapter(ArrayList<Users> usersList, Context context) {
         this.usersList = usersList;
         this.context = context;
+
+    }
+
+    public void setFilterdList(ArrayList<Users> filterdList){
+        this.usersList = filterdList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -171,6 +181,8 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
         return usersList.size();
     }
 
+
+
     public class viewHolder extends RecyclerView.ViewHolder {
         FollowersRvLayoutBinding binding;
 
@@ -178,7 +190,6 @@ public class userAdapter extends RecyclerView.Adapter<userAdapter.viewHolder> {
             super(itemView);
             binding = FollowersRvLayoutBinding.bind(itemView);
         }
+
     }
-
-
 }

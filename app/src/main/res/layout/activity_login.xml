@@ -16,12 +16,12 @@
         android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_40sdp"
-        android:src="@drawable/icon"/>
+<!--    <ImageView-->
+<!--        android:layout_width="@dimen/_70sdp"-->
+<!--        android:layout_height="@dimen/_70sdp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="@dimen/_20sdp"-->
+<!--        android:src="@drawable/icon"/>-->
 
     <TextView
         android:layout_width="match_parent"
@@ -91,10 +91,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+        <TextView
+            android:id="@+id/forgetPasswordTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget password ?"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_7sdp"
+            android:background="?android:selectableItemBackground"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:animateLayoutChanges="true">
 
         <ProgressBar
@@ -119,6 +130,24 @@
 
     </FrameLayout>
 
+        <TextView
+            android:id="@+id/resendVerificationlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_verification_link"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_12ssp"
+            android:background="?android:selectableItemBackground"
+            android:padding="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:textSize="@dimen/_13ssp"
+            android:layout_gravity="center"
+            />
 
         <TextView
             android:id="@+id/createNewAccount"
@@ -126,7 +155,7 @@
             android:layout_height="wrap_content"
             android:text="@string/create_new_account"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:background="?android:selectableItemBackground"
             android:textSize="@dimen/_12ssp"
             android:padding="@dimen/_10sdp"/>
     </LinearLayout>

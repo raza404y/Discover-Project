@@ -99,7 +99,6 @@
             android:id="@+id/postImageView"
             android:layout_width="0dp"
             android:layout_height="@dimen/_220sdp"
-            android:src="@drawable/img_1"
             android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/view3"
