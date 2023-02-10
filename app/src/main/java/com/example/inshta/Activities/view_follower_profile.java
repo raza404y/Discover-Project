@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.inshta.Adapters.profileFollowerAdapter;
@@ -16,9 +15,8 @@ import com.example.inshta.Models.bioModel;
 import com.example.inshta.Models.editProfileModel;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
-import com.example.inshta.databinding.ActivityProfileViewBinding;
+import com.example.inshta.databinding.ActivityViewFollowerProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,16 +24,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class profileView extends AppCompatActivity {
+public class view_follower_profile extends AppCompatActivity {
 
-    ActivityProfileViewBinding binding;
-    String useridd;
+    String followerid;
     FirebaseDatabase database;
     FirebaseAuth auth;
+    ActivityViewFollowerProfileBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileViewBinding.inflate(getLayoutInflater());
+        binding = ActivityViewFollowerProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -54,15 +52,13 @@ public class profileView extends AppCompatActivity {
 
         });
 
-        // getting data from previous activity through getIntent();
         Intent intent = getIntent();
-        useridd = intent.getStringExtra("userid");
+        followerid = intent.getStringExtra("followerId");
 
-
-        // setting the data on user profile
+        // setting user profile picture and name etc...
         database.getReference()
                 .child("Users")
-                .child(useridd).addValueEventListener(new ValueEventListener() {
+                .child(followerid).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -94,23 +90,22 @@ public class profileView extends AppCompatActivity {
                     }
                 });
 
-
         ///// Getting public profile details from database from example country profession etc.......
         database.getReference()
                 .child("Users")
-                .child(useridd)
+                .child(followerid)
                 .child("profileInfo").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists()){
+                        if (snapshot.exists()){
 
-                                editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
-                                binding.countryTv.setText(profileModel.getCountry());
-                                binding.relationTv.setText(profileModel.getRelation());
-                                binding.genderTv.setText(profileModel.getGender());
-                                binding.professionTv.setText(profileModel.getProfession());
-                                binding.birthdayTv.setText(profileModel.getBirthday());
-                            }
+                            editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
+                            binding.countryTv.setText(profileModel.getCountry());
+                            binding.relationTv.setText(profileModel.getRelation());
+                            binding.genderTv.setText(profileModel.getGender());
+                            binding.professionTv.setText(profileModel.getProfession());
+                            binding.birthdayTv.setText(profileModel.getBirthday());
+                        }
 
                     }
 
@@ -124,7 +119,7 @@ public class profileView extends AppCompatActivity {
 
         database.getReference()
                 .child("Users")
-                .child(useridd)
+                .child(followerid)
                 .child("bio").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -141,7 +136,6 @@ public class profileView extends AppCompatActivity {
                 });
 
 
-
         ArrayList<profileFollowersModel> listFollowers = new ArrayList<>();
 
         profileFollowerAdapter followerAdapter = new profileFollowerAdapter(listFollowers, getApplicationContext());
@@ -149,8 +143,9 @@ public class profileView extends AppCompatActivity {
         binding.followersRecyclerView.setAdapter(followerAdapter);
 
 
+        // setting followers
         database.getReference().child("Users")
-                .child(useridd)
+                .child(followerid)
                 .child("followers").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -168,8 +163,6 @@ public class profileView extends AppCompatActivity {
 
                     }
                 });
-
-
 
 
     }

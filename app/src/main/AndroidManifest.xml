@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Inshta"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.view_follower_profile"
+            android:exported="false" />
+        <activity
             android:name=".Activities.notification_activity"
             android:exported="false" />
         <activity

@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,8 +41,6 @@ public class home extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
 
-
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, new homeFragment());
         fragmentTransaction.commit();
@@ -68,28 +68,26 @@ public class home extends AppCompatActivity {
                         binding.toolbar.setVisibility(View.VISIBLE);
                         break;
                 }
-              
- transaction.commit();
+
+                transaction.commit();
             }
-             
+
         });
+
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_items,menu);
+        getMenuInflater().inflate(R.menu.toolbar_items, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==R.id.setting){
+        if (item.getItemId() == R.id.setting) {
             startActivity(new Intent(getApplicationContext(), settings.class));
         }
         return true;
     }
-
-
-
 }

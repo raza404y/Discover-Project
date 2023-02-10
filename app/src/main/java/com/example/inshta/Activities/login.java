@@ -37,7 +37,9 @@ public class login extends AppCompatActivity {
 
         SharedPreferences sharedPreferences1 = getSharedPreferences("user",MODE_PRIVATE);
         if (sharedPreferences1.contains("key")){
-            startActivity(new Intent(getApplicationContext(),home.class));
+           Intent intent = new Intent(getApplicationContext(),home.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
         binding.loginBtn.setOnClickListener(view -> {
             loginUser();
@@ -114,6 +116,7 @@ public class login extends AppCompatActivity {
                         if (Objects.requireNonNull(auth.getCurrentUser()).isEmailVerified()){
                             disableProgressBar();
                             Intent intent = new Intent(getApplicationContext(),home.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             value = "done";
                             SharedPreferences sharedPreferences = getSharedPreferences("user",MODE_PRIVATE);

@@ -15,7 +15,7 @@
         android:id="@+id/profileToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        diagonal:title="Profile"/>
+        diagonal:title="User Profile"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -68,6 +68,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold"
+            diagonal:layout_constraintEnd_toEndOf="@+id/profileViewUserprofile"
             diagonal:layout_constraintStart_toStartOf="@+id/profileViewUserprofile"
             diagonal:layout_constraintTop_toBottomOf="@+id/profileViewUserprofile" />
 

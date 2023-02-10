@@ -1,5 +1,6 @@
 package com.example.inshta.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -141,24 +142,6 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
                             });
                         }
-
-                        holder.binding.postProfileImage.setOnClickListener(view -> {
-
-                            Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
-                            intent.putExtra("postid",model.getPostId());
-                            context.startActivity(intent);
-
-                        });
-
-                        holder.binding.commentsTV.setOnClickListener(view -> {
-
-                            Intent intent = new Intent(context.getApplicationContext(), commentsActivity.class);
-                            intent.putExtra("postId",model.getPostId());
-                            intent.putExtra("postedBy",model.getPostedBy());
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
-
-                        });
                     }
 
                     @Override
@@ -167,6 +150,28 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
                     }
                 });
 
+
+
+
+        holder.binding.postProfileImage.setOnClickListener(view -> {
+
+            Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
+            intent.putExtra("postedBy",model.getPostedBy());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+
+
+        });
+
+        holder.binding.postUserName.setOnClickListener(view -> {
+
+            Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
+            intent.putExtra("postedBy",model.getPostedBy());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+
+
+        });
 
         holder.binding.shareTV.setOnClickListener(view -> {
 

@@ -90,8 +90,7 @@ public class uploadFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false);
         binding.storyRecyclerView.setLayoutManager(layoutManager);
         binding.storyRecyclerView.setNestedScrollingEnabled(false);
-        layoutManager.canScrollHorizontally();
-         binding.storyRecyclerView.setAdapter(adapter);
+        binding.storyRecyclerView.setAdapter(adapter);
 
          enableProgressbar2();
          database.getReference()

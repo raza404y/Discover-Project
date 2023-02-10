@@ -1,5 +1,7 @@
 package com.example.inshta.Adapters;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Activities.view_follower_profile;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.profileFollowersModel;
 import com.example.inshta.R;
@@ -75,6 +78,14 @@ public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollower
 
                 });
 
+        holder.binding.followerPicture.setOnClickListener(view -> {
+
+            Intent intent = new Intent(context, view_follower_profile.class);
+            intent.putExtra("followerId",model.getFollowedBy());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+
+        });
     }
 
     @Override
@@ -93,4 +104,5 @@ public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollower
 
         }
     }
+
 }
