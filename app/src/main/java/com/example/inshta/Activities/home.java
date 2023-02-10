@@ -73,8 +73,6 @@ public class home extends AppCompatActivity {
             }
 
         });
-
-
     }
 
     @Override
