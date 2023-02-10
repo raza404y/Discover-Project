@@ -68,7 +68,6 @@ public class home extends AppCompatActivity {
                         binding.toolbar.setVisibility(View.VISIBLE);
                         break;
                 }
-
                 transaction.commit();
             }
 
