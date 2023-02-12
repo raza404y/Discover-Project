@@ -19,6 +19,11 @@
     <color name="greyColor">#F0F0F0</color>
     <color name="grey2">#E1E1E1</color>
     <color name="comments_text_color">#B2000000</color>
+    <color name="tab_color">#DD2196F3</color>
+    <color name="grey_lite">#6DF0F0F0</color>
+    <color name="type_msg_color">#F0F0F0</color>
+    <color name="secondary_text">#757575</color>
+    <color name="sendBtnColor">#0084FF</color>
 
 
 </resources>

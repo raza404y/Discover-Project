@@ -10,7 +10,6 @@ import android.view.View;
 import com.example.inshta.R;
 import com.example.inshta.databinding.ActivitySettingsBinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class settings extends AppCompatActivity {
 

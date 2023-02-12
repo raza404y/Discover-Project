@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:padding="@dimen/_3sdp"
-                android:text="Raza Khan"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold"

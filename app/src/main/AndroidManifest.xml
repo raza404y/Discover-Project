@@ -18,6 +18,12 @@
         android:theme="@style/Theme.Inshta"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.messages"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.chats"
+            android:exported="false" />
+        <activity
             android:name=".Activities.view_follower_profile"
             android:exported="false" />
         <activity
@@ -29,7 +35,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".profileView2"
+            android:name="com.example.inshta.profileView2"
             android:exported="false" />
         <activity
             android:name=".Activities.profileView"

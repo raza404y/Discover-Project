@@ -1,6 +1,5 @@
 package com.example.inshta.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.inshta.Activities.commentsActivity;
 import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.postModel;

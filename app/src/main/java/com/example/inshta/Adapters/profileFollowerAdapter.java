@@ -1,11 +1,10 @@
 package com.example.inshta.Adapters;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,9 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import de.hdodenhof.circleimageview.CircleImageView;
-
-
 
 
 public class profileFollowerAdapter extends RecyclerView.Adapter<profileFollowerAdapter.viewHolder>{

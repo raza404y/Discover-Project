@@ -8,9 +8,9 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/followerProfilePic"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:id="@+id/chatProfilePic"
+        android:layout_width="@dimen/_44sdp"
+        android:layout_height="@dimen/_44sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:src="@drawable/profile_placeholder"
@@ -24,9 +24,9 @@
         android:src="@drawable/blue_tick"
         android:visibility="gone"
         android:layout_marginStart="@dimen/_3sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/followerUsername"
-        app:layout_constraintStart_toEndOf="@+id/followerUsername"
-        app:layout_constraintTop_toTopOf="@+id/followerUsername" />
+        app:layout_constraintBottom_toBottomOf="@+id/chatUsername"
+        app:layout_constraintStart_toEndOf="@+id/chatUsername"
+        app:layout_constraintTop_toTopOf="@+id/chatUsername" />
 
     <ImageView
         android:id="@+id/greenTick"
@@ -35,13 +35,13 @@
         android:src="@drawable/green_tick"
         android:visibility="gone"
         android:layout_marginStart="@dimen/_3sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/followerUsername"
-        app:layout_constraintStart_toEndOf="@+id/followerUsername"
-        app:layout_constraintTop_toTopOf="@+id/followerUsername" />
+        app:layout_constraintBottom_toBottomOf="@+id/chatUsername"
+        app:layout_constraintStart_toEndOf="@+id/chatUsername"
+        app:layout_constraintTop_toTopOf="@+id/chatUsername" />
 
 
     <TextView
-        android:id="@+id/followerUsername"
+        android:id="@+id/chatUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_6sdp"
@@ -52,31 +52,17 @@
         android:textSize="@dimen/_14ssp"
         android:maxWidth="@dimen/_140sdp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/followerProfilePic"
-        app:layout_constraintTop_toTopOf="@+id/followerProfilePic" />
+        app:layout_constraintStart_toEndOf="@+id/chatProfilePic"
+        app:layout_constraintTop_toTopOf="@+id/chatProfilePic" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/followBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8ssp"
-        android:text="Follow"
-        android:backgroundTint="@color/black"
-        android:textSize="@dimen/_12ssp"
-        android:textColor="@color/white"
-        app:rippleColor="@color/white"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="@+id/followerProfilePic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/followerProfilePic" />
+
 
     <TextView
-        android:id="@+id/followerProfession"
+        android:id="@+id/chatProfession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/followerProfilePic"
-        app:layout_constraintStart_toStartOf="@+id/followerUsername" />
+        app:layout_constraintStart_toStartOf="@+id/chatUsername"
+        app:layout_constraintTop_toBottomOf="@+id/chatUsername" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

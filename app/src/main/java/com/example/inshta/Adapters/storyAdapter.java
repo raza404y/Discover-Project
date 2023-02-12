@@ -17,13 +17,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.makeramen.roundedimageview.RoundedImageView;
+
 import java.util.ArrayList;
-import de.hdodenhof.circleimageview.CircleImageView;
+
 import omari.hamza.storyview.StoryView;
 import omari.hamza.storyview.callback.StoryClickListeners;
 import omari.hamza.storyview.model.MyStory;
-import omari.hamza.storyview.utils.StoryViewHeaderInfo;
 
 public class storyAdapter extends RecyclerView.Adapter<storyAdapter.viewHolder>{
 

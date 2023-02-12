@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Activities.chats;
 import com.example.inshta.Activities.notification_activity;
 import com.example.inshta.Activities.upload_post;
 import com.example.inshta.Adapters.postAdapter;
@@ -75,10 +76,6 @@ public class homeFragment extends Fragment {
                     Glide.with(getContext())
                             .load(users.getProfile())
                             .placeholder(R.drawable.profile_placeholder)
-                            .into(binding.homeProfileImage);
-                    Glide.with(getContext())
-                            .load(users.getProfile())
-                            .placeholder(R.drawable.profile_placeholder)
                             .into(binding.prfilePicture);
                 }
 
@@ -88,6 +85,12 @@ public class homeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+
+        binding.chatsImageView.setOnClickListener(view -> {
+            startActivity(new Intent(getContext(), chats.class));
+            getActivity().overridePendingTransition(0,0);
         });
 
 

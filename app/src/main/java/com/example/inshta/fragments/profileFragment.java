@@ -10,11 +10,9 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -25,7 +23,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.inshta.Activities.profileBio;
 import com.example.inshta.Activities.profileEdit;
-import com.example.inshta.Adapters.postAdapter;
 import com.example.inshta.Adapters.profileFollowerAdapter;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.bioModel;
