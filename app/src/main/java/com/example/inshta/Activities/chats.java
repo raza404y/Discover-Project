@@ -87,7 +87,7 @@ public class chats extends AppCompatActivity {
 
             @Override
             public void onTabSelected(@NonNull TabLayout.Tab tab) {
-                int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.tab_color);
+                int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.sendBtnColor);
                 tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
                 super.onTabSelected(tab);
             }
