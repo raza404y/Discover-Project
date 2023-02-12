@@ -92,6 +92,8 @@ public class chats extends AppCompatActivity {
                 super.onTabSelected(tab);
             }
 
+
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 int tabIconColor = ContextCompat.getColor(getApplicationContext(), R.color.black);
