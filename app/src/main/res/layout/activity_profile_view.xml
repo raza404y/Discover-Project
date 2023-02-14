@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/container"
     android:fillViewport="true"
+    android:background="@color/white"
     android:contentDescription="@string/app_name"
     tools:context=".Activities.profileView">
 
@@ -34,7 +35,6 @@
             android:layout_height="@dimen/_140sdp"
             android:src="@drawable/cover_placeholder"
             android:scaleType="centerCrop"
-            android:background="#F1EEEE"
             diagonal:layout_constraintEnd_toEndOf="parent"
             diagonal:layout_constraintHorizontal_bias="0.0"
             diagonal:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
             android:background="@color/grey2"
             android:gravity="center"
             android:padding="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             android:text="You can edit your all public detail from settings"
             diagonal:layout_constraintEnd_toEndOf="parent"
             diagonal:layout_constraintStart_toStartOf="parent"

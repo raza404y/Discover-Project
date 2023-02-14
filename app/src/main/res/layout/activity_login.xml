@@ -7,6 +7,7 @@
     android:scrollbars="none"
     android:fillViewport="true"
     android:overScrollMode="never"
+    android:background="@color/white"
     android:padding="@dimen/_20sdp"
     tools:context=".Activities.login">
 
@@ -45,7 +46,7 @@
         app:boxBackgroundMode="filled"
         app:boxBackgroundColor="@null"
         android:id="@+id/emailEt"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_11sdp"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -54,7 +55,7 @@
             android:backgroundTint="@android:color/transparent"
             android:paddingStart="@dimen/_2sdp"
             android:paddingEnd="@dimen/_2sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             android:gravity="start"
             android:paddingTop="@dimen/_22sdp"
             android:importantForAutofill="no"
@@ -100,7 +101,7 @@
             android:padding="@dimen/_7sdp"
             android:background="?android:selectableItemBackground"
             android:layout_gravity="end"
-            android:layout_marginTop="@dimen/_10sdp"/>
+            android:layout_marginTop="@dimen/_11sdp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -139,7 +140,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:textSize="@dimen/_12ssp"
             android:background="?android:selectableItemBackground"
-            android:padding="@dimen/_10sdp"/>
+            android:padding="@dimen/_11sdp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,6 +158,6 @@
             android:layout_gravity="center"
             android:background="?android:selectableItemBackground"
             android:textSize="@dimen/_12ssp"
-            android:padding="@dimen/_10sdp"/>
+            android:padding="@dimen/_11sdp"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

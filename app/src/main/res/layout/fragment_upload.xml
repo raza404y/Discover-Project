@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     tools:context=".fragments.uploadFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,8 +72,8 @@
 
             <ProgressBar
                 android:id="@+id/progressBar"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:visibility="gone"
                 android:layout_gravity="center" />
 
@@ -104,8 +105,8 @@
 
             <ProgressBar
                 android:id="@+id/progressBar2"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
                 android:visibility="visible" />
 

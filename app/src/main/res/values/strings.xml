@@ -9,13 +9,13 @@
     <string name="already_have_an_account"><u>Already have an account.</u></string>
     <string name="text">Welcome here you can edit your all personal detail and you can also update you profile information</string>
     <string name="favourite_hobby">Favourite Hobby?</string>
-    <string name="your_country_name">your country name?</string>
+    <string name="your_country_name">Where you live?</string>
     <string name="current_relationship_status">current relationship status?</string>
     <string name="male_or_female">Male or Female?</string>
     <string name="update">Update</string>
     <string name="xcv">Edit Profile</string>
     <string name="this_user_did_not_write_anything_about_himself">This user did\'not write anything about himself.</string>
-    <string name="sayhello">SayHello</string>
+    <string name="say">SayHello</string>
     <string name="what_s_on_your_mind">What\'s on your mind...</string>
     <string name="add_to_your_post">Add to your post</string>
     <string name="this_page_is_in_construction_very_soon_will_show_right_data">This page is in construction Very soon will show Right Data.</string>

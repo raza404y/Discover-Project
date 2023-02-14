@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/white"
     tools:context=".Activities.upload_post">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +47,7 @@
             android:id="@+id/btnPost"
             android:layout_width="@dimen/_64sdp"
             android:layout_height="@dimen/_33sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:background="@drawable/follow_active_btn"
             android:enabled="false"
@@ -149,7 +150,7 @@
             android:layout_marginStart="@dimen/_12sdp"
             app:civ_border_width="@dimen/_1sdp"
             app:civ_border_color="@color/instalastclor"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -158,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             android:fontFamily="@font/roboto_bold"
             android:singleLine="true"
             android:text=""

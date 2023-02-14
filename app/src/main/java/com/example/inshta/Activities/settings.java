@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.inshta.R;
 import com.example.inshta.databinding.ActivitySettingsBinding;
@@ -63,6 +64,8 @@ public class settings extends AppCompatActivity {
 
             startActivity(new Intent(getApplicationContext(),login.class));
             overridePendingTransition(0,0);
+            finishAffinity();
+            Toast.makeText(this, "Signing out...", Toast.LENGTH_SHORT).show();
         });
     }
 }

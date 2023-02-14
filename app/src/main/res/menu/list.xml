@@ -6,25 +6,26 @@
         android:icon="@drawable/ic_home"
         android:title="Home"
         android:checked="true"
-        android:color="@color/sendBtnColor"/>
+        android:color="@color/black"/>
 
 
      <item
         android:id="@+id/upload"
         android:icon="@drawable/ic_story"
         android:title="Moments"
-        android:color="@color/sendBtnColor"/>
+
+        android:color="@color/black"/>
 
      <item
         android:id="@+id/search"
         android:icon="@drawable/ic_people"
         android:title="Peoples"
-        android:color="@color/sendBtnColor"/>
+        android:color="@color/black"/>
 
      <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_user"
         android:title="Profile"
-        android:color="@color/sendBtnColor"/>
+        android:color="@color/black"/>
 
 </menu>

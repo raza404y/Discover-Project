@@ -60,12 +60,12 @@ public class profileEdit extends AppCompatActivity {
                                 binding.genderEt.setText(profileModel.getGender());
                                 binding.professioneEt.setText(profileModel.getProfession());
                                 binding.birthdayEt.setText(profileModel.getBirthday());
-                            }else {
-                                binding.countryEt.setText(notAdded);
-                                binding.professioneEt.setText(notAdded);
-                                binding.relationEt.setText(notAdded);
-                                binding.genderEt.setText(notAdded);
-                                binding.birthdayEt.setText(notAdded);
+//                            }else {
+//                                binding.professioneEt.setHint(notAdded);
+//                                binding.countryEt.setHint(notAdded);
+//                                binding.relationEt.setHint(notAdded);
+//                                binding.birthdayEt.setHint(notAdded);
+//                                binding.genderEt.setHint(notAdded);
                             }
                         }
 
@@ -79,24 +79,16 @@ public class profileEdit extends AppCompatActivity {
 
         binding.updateButton.setOnClickListener(view -> {
 
-            String country = binding.countryEt.getText().toString().trim();
-            String profession = binding.professioneEt.getText().toString().trim();
-            String relation = binding.relationEt.getText().toString().trim();
-            String gender = binding.genderEt.getText().toString().trim();
-            String birthday = binding.birthdayEt.getText().toString().trim();
 
-            if (country.isEmpty()){
-               showToast("");
-            }else if (profession.isEmpty()){
-                binding.professioneEt.setText(notAdded);
-            }else if (relation.isEmpty()){
-                binding.relationEt.setText(notAdded);
-            }else if (gender.isEmpty()){
-                binding.genderEt.setText(notAdded);
-            }else if (birthday.isEmpty()) {
-                binding.birthdayEt.setText(notAdded);
-            }else {
-                editProfileModel model = new editProfileModel(country,profession,relation,birthday,gender);
+            try {
+                String country = binding.countryEt.getText().toString().trim();
+                String profession = binding.professioneEt.getText().toString().trim();
+                String relation = binding.relationEt.getText().toString().trim();
+                String gender = binding.genderEt.getText().toString().trim();
+                String birthday = binding.birthdayEt.getText().toString().trim();
+
+
+                editProfileModel model = new editProfileModel(country, profession, relation, birthday, gender);
                 enableProgressBar();
                 database.getReference()
                         .child("Users")
@@ -105,23 +97,23 @@ public class profileEdit extends AppCompatActivity {
                         .setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     showToast("Profile Updated Successfully");
-                                    startActivity(new Intent(getApplicationContext(),home.class));
+                                    startActivity(new Intent(getApplicationContext(), home.class));
                                     binding.countryEt.setText("");
                                     binding.professioneEt.setText("");
                                     binding.relationEt.setText("");
                                     binding.genderEt.setText("");
                                     disableProgressBar();
-                                }
-                                else {
+                                } else {
                                     showToast("something is wrong");
                                     disableProgressBar();
                                 }
                             }
                         });
 
-
+            }catch (Exception e){
+                Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
         });
