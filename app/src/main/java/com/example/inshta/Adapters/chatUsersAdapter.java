@@ -47,7 +47,8 @@ public class chatUsersAdapter extends RecyclerView.Adapter<chatUsersAdapter.view
                 .placeholder(R.drawable.profile_placeholder)
                 .into(holder.binding.chatProfilePic);
         holder.binding.chatUsername.setText(users.getName());
-        holder.binding.chatProfession.setText(users.getProfession2());
+       // holder.binding.chatProfession.setText(users.getProfession2());
+        holder.binding.chatProfession.setText("Message");
 
         if (users.getFollowerCount()<10){
             holder.binding.blueTick.setVisibility(View.INVISIBLE);

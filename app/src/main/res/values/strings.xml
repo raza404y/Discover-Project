@@ -27,4 +27,6 @@
     <string name="share_moments_with_nthe_world">Share moments with\nthe world</string>
     <string name="say_to_the_world_feel_free">Say to the world feel free...</string>
     <string name="share_your_best_moments">Share your moments</string>
+    <string name="lite_messenger">Lite Messenger</string>
+    <string name="no_recent_chat_is_available">No recent chat is available</string>
 </resources>

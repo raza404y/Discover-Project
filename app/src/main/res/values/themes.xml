@@ -12,7 +12,7 @@
         <item name="colorSecondaryVariant">@color/white</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
-        <item name="android:selectableItemBackground">@color/white</item>
+<!--        <item name="android:selectableItemBackground">@color/white</item>-->
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

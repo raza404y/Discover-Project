@@ -72,11 +72,13 @@ public class homeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if (getActivity() != null) {
-                    Users users = snapshot.getValue(Users.class);
-                    Glide.with(getContext())
-                            .load(users.getProfile())
-                            .placeholder(R.drawable.profile_placeholder)
-                            .into(binding.prfilePicture);
+                    if (snapshot.exists()) {
+                        Users users = snapshot.getValue(Users.class);
+                        Glide.with(getContext())
+                                .load(users.getProfile())
+                                .placeholder(R.drawable.profile_placeholder)
+                                .into(binding.prfilePicture);
+                    }
                 }
 
             }
@@ -106,18 +108,20 @@ public class homeFragment extends Fragment {
         binding.postRecyclerView.setLayoutManager(layoutManager1);
 
         binding.progressBar.setVisibility(View.VISIBLE);
-        database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("posts").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    postList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    postModel model = dataSnapshot.getValue(postModel.class);
-                    model.setPostId(dataSnapshot.getKey());
-                    postList.add(model);
-                }
-                postadapter.notifyDataSetChanged();
-              binding.progressBar.setVisibility(View.INVISIBLE);
+                if (snapshot.exists()) {
 
+                    postList.clear();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        postModel model = dataSnapshot.getValue(postModel.class);
+                        model.setPostId(dataSnapshot.getKey());
+                        postList.add(model);
+                    }
+                    postadapter.notifyDataSetChanged();
+                    binding.progressBar.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override

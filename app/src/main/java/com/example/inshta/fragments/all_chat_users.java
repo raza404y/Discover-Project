@@ -55,6 +55,7 @@ public class all_chat_users extends Fragment {
         layoutManager.setStackFromEnd(true);
         binding.recyclerViewAllChatUsers.setLayoutManager(layoutManager);
 
+
         database.getReference()
                 .child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

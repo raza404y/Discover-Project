@@ -58,6 +58,15 @@ public class recent_chats extends Fragment {
         userlist = new ArrayList<>();
         mUsers = new ArrayList<>();
 
+//        if (mUsers.size()<0){
+//            binding.imageView3.setVisibility(View.VISIBLE);
+//            binding.recentChatTV.setVisibility(View.VISIBLE);
+//        }else {
+//            binding.imageView3.setVisibility(View.GONE);
+//            binding.recentChatTV.setVisibility(View.GONE);
+//        }
+
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("chatList")
                 .child(FirebaseAuth.getInstance().getUid());
@@ -102,13 +111,19 @@ public class recent_chats extends Fragment {
                                         Log.d("userId", "onDataChange: "+users.getName());
                                         if (users.getUserId().equals(chatList.getId())){
                                             mUsers.add(users);
+                                        }else {
+                                            binding.imageView3.setVisibility(View.INVISIBLE);
+                                            binding.recentChatTV.setVisibility(View.INVISIBLE);
                                         }
                                     }
 
                                 }
 
                                 chatUsersAdapter adapter = new chatUsersAdapter(mUsers,getContext());
-                                binding.recyclerViewRecentChats.setLayoutManager(new LinearLayoutManager(getContext()));
+                                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                                layoutManager.setReverseLayout(true);
+                                layoutManager.setStackFromEnd(true);
+                                binding.recyclerViewRecentChats.setLayoutManager(layoutManager);
                                 binding.recyclerViewRecentChats.setAdapter(adapter);
                                 adapter.notifyDataSetChanged();
 

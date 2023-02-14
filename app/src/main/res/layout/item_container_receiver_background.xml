@@ -41,11 +41,9 @@
         android:id="@+id/rtextDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_4sdp"
         android:textColor="@color/secondary_text"
-        android:textSize="@dimen/_8ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        android:textSize="@dimen/_10ssp"
+        android:layout_marginStart="@dimen/_4sdp"
         app:layout_constraintStart_toStartOf="@+id/RecieverMessage"
         app:layout_constraintTop_toBottomOf="@+id/RecieverMessage" />
 

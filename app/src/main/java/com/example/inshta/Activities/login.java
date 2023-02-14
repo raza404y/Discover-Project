@@ -57,16 +57,22 @@ public class login extends AppCompatActivity {
         });
             binding.resendVerificationlink.setOnClickListener(view -> {
 
+                try {
                     Objects.requireNonNull(auth.getCurrentUser()).sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(login.this, "Please wait we're sending an verification link to your Email", Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(login.this, "Create new account if haven't already", Toast.LENGTH_LONG).show();
+                                Toast.makeText(login.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
+
+                }catch (Exception e){
+                    Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
 
                 });
 

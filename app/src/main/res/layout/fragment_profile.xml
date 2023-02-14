@@ -22,25 +22,23 @@
                 android:id="@+id/uploadCoverImageView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_140sdp"
-                android:src="@drawable/cover_placeholder"
-                android:scaleType="centerCrop"
                 android:background="#F1EEEE"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cover_placeholder"
                 diagonal:layout_constraintEnd_toEndOf="parent"
                 diagonal:layout_constraintHorizontal_bias="0.0"
                 diagonal:layout_constraintStart_toStartOf="parent"
-                diagonal:layout_constraintTop_toTopOf="parent"
-                 />
-
+                diagonal:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/uploadCoverImage"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
-                android:background="@drawable/profile_pic_upload_view"
-                android:padding="@dimen/_4sdp"
-                android:contentDescription="@string/app_name"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/profile_pic_upload_view"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_4sdp"
                 android:src="@drawable/ic_outline_photo_camera_24"
                 diagonal:layout_constraintBottom_toBottomOf="@+id/uploadCoverImageView"
                 diagonal:layout_constraintEnd_toEndOf="parent" />
@@ -58,6 +56,7 @@
                 diagonal:layout_constraintStart_toStartOf="parent"
                 diagonal:layout_constraintTop_toBottomOf="@+id/uploadCoverImageView"
                 diagonal:layout_constraintVertical_bias="0.504" />
+
 
             <View
                 android:id="@+id/view5"

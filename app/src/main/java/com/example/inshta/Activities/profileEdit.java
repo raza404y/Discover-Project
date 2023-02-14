@@ -14,13 +14,16 @@ import com.example.inshta.databinding.ActivityProfileEditBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class profileEdit extends AppCompatActivity {
     ActivityProfileEditBinding binding;
     FirebaseDatabase database;
     FirebaseAuth auth;
-
+    String notAdded = "Not Added";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,37 @@ public class profileEdit extends AppCompatActivity {
 
         });
 
+        database.getReference()
+                .child("Users")
+                .child(auth.getUid())
+                .child("profileInfo").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()){
+
+                                editProfileModel profileModel = snapshot.getValue(editProfileModel.class);
+                                binding.countryEt.setText(profileModel.getCountry());
+                                binding.relationEt.setText(profileModel.getRelation());
+                                binding.genderEt.setText(profileModel.getGender());
+                                binding.professioneEt.setText(profileModel.getProfession());
+                                binding.birthdayEt.setText(profileModel.getBirthday());
+                            }else {
+                                binding.countryEt.setText(notAdded);
+                                binding.professioneEt.setText(notAdded);
+                                binding.relationEt.setText(notAdded);
+                                binding.genderEt.setText(notAdded);
+                                binding.birthdayEt.setText(notAdded);
+                            }
+                        }
+
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
         binding.updateButton.setOnClickListener(view -> {
 
             String country = binding.countryEt.getText().toString().trim();
@@ -52,15 +86,15 @@ public class profileEdit extends AppCompatActivity {
             String birthday = binding.birthdayEt.getText().toString().trim();
 
             if (country.isEmpty()){
-                showToast("Enter country");
+               showToast("");
             }else if (profession.isEmpty()){
-                showToast("Enter profession");
+                binding.professioneEt.setText(notAdded);
             }else if (relation.isEmpty()){
-                showToast("Enter your relation");
+                binding.relationEt.setText(notAdded);
             }else if (gender.isEmpty()){
-                showToast("Enter your gender Male/Female");
+                binding.genderEt.setText(notAdded);
             }else if (birthday.isEmpty()) {
-                showToast("write your birthday date");
+                binding.birthdayEt.setText(notAdded);
             }else {
                 editProfileModel model = new editProfileModel(country,profession,relation,birthday,gender);
                 enableProgressBar();
@@ -91,6 +125,8 @@ public class profileEdit extends AppCompatActivity {
             }
 
         });
+
+
 
     }
 

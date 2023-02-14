@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.inshta.Activities.commentsActivity;
 import com.example.inshta.Models.NotificationModel;
 import com.example.inshta.Models.Users;
 import com.example.inshta.Models.postModel;
@@ -48,36 +49,39 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         postModel model = postList.get(position);
         String textTimePost = TimeAgo.using(model.getPostAt());
+
         Glide.with(context)
-                .load(model.getPostImage())
-                .placeholder(R.drawable.cover_placeholder)
-                .into(holder.binding.postImage);
+                        .load(model.getPostImage())
+                                .placeholder(R.drawable.cover_placeholder)
+                                        .into(holder.binding.postImage);
+
+
         holder.binding.postDescriptionHome.setText(model.getPostDescription());
         holder.binding.likesTV.setText(model.getPostLike() + "");
-        holder.binding.commentsTV.setText(model.getCommentCount()+"");
+        holder.binding.commentsTV.setText(model.getCommentCount() + "");
         FirebaseDatabase.getInstance().getReference()
                 .child("Users")
-                .child(model.getPostedBy()).addValueEventListener(new ValueEventListener() {
+                .child(model.getPostedBy()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       if (snapshot.exists()) {
-                           Users users = snapshot.getValue(Users.class);
-                           Glide.with(context)
-                                   .load(users.getProfile())
-                                   .placeholder(R.drawable.profile_placeholder)
-                                   .into(holder.binding.postProfileImage);
-                           holder.binding.postUserName.setText(users.getName());
-                           holder.binding.postProfession.setText(textTimePost + "");
+                        if (snapshot.exists()) {
+                            Users users = snapshot.getValue(Users.class);
+                            Glide.with(context)
+                                    .load(users.getProfile())
+                                    .placeholder(R.drawable.profile_placeholder)
+                                    .into(holder.binding.postProfileImage);
+                            holder.binding.postUserName.setText(users.getName());
+                            holder.binding.postProfession.setText(textTimePost + "");
 
-                           if (users.getFollowerCount()<10){
-                               holder.binding.blueTick.setVisibility(View.INVISIBLE);
-                               holder.binding.greenTick.setVisibility(View.INVISIBLE);
-                           }else if ((users.getFollowerCount()>=10 && users.getFollowerCount()<50)){
-                               holder.binding.greenTick.setVisibility(View.VISIBLE);
-                           }else {
-                               holder.binding.blueTick.setVisibility(View.VISIBLE);
-                           }
-                       }
+                            if (users.getFollowerCount() < 10) {
+                                holder.binding.blueTick.setVisibility(View.INVISIBLE);
+                                holder.binding.greenTick.setVisibility(View.INVISIBLE);
+                            } else if ((users.getFollowerCount() >= 10 && users.getFollowerCount() < 50)) {
+                                holder.binding.greenTick.setVisibility(View.VISIBLE);
+                            } else {
+                                holder.binding.blueTick.setVisibility(View.VISIBLE);
+                            }
+                        }
                     }
 
                     @Override
@@ -85,7 +89,6 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
 
                     }
                 });
-
 
 
         FirebaseDatabase.getInstance().getReference()
@@ -149,12 +152,10 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
                 });
 
 
-
-
         holder.binding.postProfileImage.setOnClickListener(view -> {
 
             Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
-            intent.putExtra("postedBy",model.getPostedBy());
+            intent.putExtra("postedBy", model.getPostedBy());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
 
@@ -164,19 +165,26 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
         holder.binding.postUserName.setOnClickListener(view -> {
 
             Intent intent = new Intent(context.getApplicationContext(), profileView2.class);
-            intent.putExtra("postedBy",model.getPostedBy());
+            intent.putExtra("postedBy", model.getPostedBy());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
 
 
         });
 
+        holder.binding.commentsTV.setOnClickListener(view -> {
+            Intent intent = new Intent(context.getApplicationContext(), commentsActivity.class);
+            intent.putExtra("postId",model.getPostId());
+            intent.putExtra("postedBy",model.getPostedBy());
+            context.startActivity(intent);
+        });
+
         holder.binding.shareTV.setOnClickListener(view -> {
 
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT,holder.binding.postDescriptionHome.getText().toString());
-            Intent.createChooser(intent,"sharing");
+            intent.putExtra(Intent.EXTRA_TEXT, holder.binding.postDescriptionHome.getText().toString());
+            Intent.createChooser(intent, "sharing");
             context.startActivity(intent);
 
         });

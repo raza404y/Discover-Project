@@ -56,6 +56,7 @@
                 android:paddingEnd="@dimen/_2sdp"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:gravity="start"
+                android:maxLength="50"
                 android:paddingTop="@dimen/_22sdp"
                 android:importantForAutofill="no"
                 android:hint="@string/name"
@@ -83,6 +84,7 @@
                 android:paddingTop="@dimen/_22sdp"
                 android:importantForAutofill="no"
                 android:hint="Profession"
+                android:maxLength="50"
                 android:inputType="text"
                 android:maxLines="1"/>
 
@@ -108,6 +110,7 @@
                 android:paddingTop="@dimen/_22sdp"
                 android:importantForAutofill="no"
                 android:hint="@string/email"
+                android:maxLength="50"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"/>
 

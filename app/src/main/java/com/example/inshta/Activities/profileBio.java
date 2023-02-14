@@ -1,5 +1,6 @@
 package com.example.inshta.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,10 @@ import com.example.inshta.R;
 import com.example.inshta.databinding.ActivityProfileBioBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class profileBio extends AppCompatActivity {
 
@@ -41,13 +45,39 @@ public class profileBio extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+
+
+
+        database.getReference()
+                .child("Users")
+                .child(auth.getUid())
+                .child("bio").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            bioModel model = snapshot.getValue(bioModel.class);
+                            binding.bioEt.setText(model.getBio());
+                        }else {
+                            binding.bioEt.setText("This is user didn't write anything about himself.");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+
         binding.updateBio.setOnClickListener(view -> {
 
 
             String bio = binding.bioEt.getText().toString().trim();
 
             if (bio.isEmpty()){
-                Toast.makeText(this, "Write something", Toast.LENGTH_SHORT).show();
+                binding.bioEt.setText("This is user didn't write anything about himself.");
             }else {
 
                 bioModel biomdel = new bioModel();

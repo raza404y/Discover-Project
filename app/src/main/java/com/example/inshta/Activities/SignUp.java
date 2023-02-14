@@ -24,7 +24,6 @@ public class SignUp extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase database;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,19 +62,22 @@ public class SignUp extends AppCompatActivity {
 
 
         if (name.isEmpty()){
-                showToast("Enter your name");
+                showToast("Enter your Name");
         }else if(profession.isEmpty()) {
-            showToast("Enter profession");
+            showToast("Enter Profession");
         }else if (email.isEmpty()){
-                showToast("Enter your email");
+                showToast("Enter your Email");
         } else if (password.isEmpty()){
-                showToast("Enter your password");
+                showToast("Enter your Password");
         } else if (!email.matches(emailPattern)){
-                showToast("Enter a valid email");
+                showToast("Enter a valid Email");
         }else if (password.length()<6){
                 showToast("Password must be 6 characters");
+        }else if (name.length()<5){
+                showToast("Name should be greater than 5 characters");
+        }else if (profession.length()<5) {
+                showToast("Profession at least greater than 5 characters");
         }else {
-
 
                 enableProgressBar();
             auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
