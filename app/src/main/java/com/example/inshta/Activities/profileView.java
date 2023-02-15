@@ -33,6 +33,7 @@ public class profileView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Inshta);
         binding = ActivityProfileViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

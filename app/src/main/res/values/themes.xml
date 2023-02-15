@@ -20,19 +20,11 @@
     </style>
 
     <style name="splashscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
-
         <item name="android:windowBackground">@drawable/splash_sc</item>
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:textColorHint">@color/black</item>
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/white</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/sendBtnColor</item>
         <!-- Secondary brand color. -->
-        <item name="android:textCursorDrawable">@null</item>
-        <item name="colorSecondary">@color/black</item>
-        <item name="colorSecondaryVariant">@color/white</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <item name="android:navigationBarColor">@color/white</item>
+
+       <item name="android:navigationBarColor">@color/sendBtnColor</item>
     </style>
 
 

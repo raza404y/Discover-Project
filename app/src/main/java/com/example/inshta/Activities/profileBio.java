@@ -27,6 +27,7 @@ public class profileBio extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Inshta);
         binding = ActivityProfileBioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
