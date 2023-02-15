@@ -190,6 +190,7 @@ public class upload_post extends AppCompatActivity {
                                             public void onSuccess(Void unused) {
                                                 Toast.makeText(upload_post.this, "Posted Successfully", Toast.LENGTH_SHORT).show();
                                                 binding.postDescription.setText("");
+                                                startActivity(new Intent(getApplicationContext(),home.class));
                                                 binding.postImageView.setVisibility(View.INVISIBLE);
 
                                                 disableProgressBar();
