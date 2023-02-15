@@ -88,6 +88,7 @@
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             android:lines="12"
+            android:maxLength="3000"
             android:textColor="@color/black"
             android:paddingTop="@dimen/_8sdp"
             android:paddingStart="@dimen/_12sdp"
@@ -102,8 +103,8 @@
         <ImageView
             android:id="@+id/postImageView"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_220sdp"
-            android:scaleType="centerCrop"
+            android:layout_height="@dimen/_270sdp"
+            android:scaleType="fitCenter"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/view3"
             app:layout_constraintEnd_toEndOf="parent"

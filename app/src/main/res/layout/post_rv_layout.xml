@@ -6,19 +6,22 @@
     android:background="@color/white"
     android:layout_height="wrap_content">
 
-    <TextView
+    <net.expandable.ExpandableTextView
         android:id="@+id/postDescriptionHome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
-        android:gravity="top|start"
+        android:gravity="start"
         android:layout_marginTop="@dimen/_4sdp"
         android:padding="@dimen/_2sdp"
-        android:paddingStart="@dimen/_11sdp"
-        android:textColor="#131418"
-        android:textSize="@dimen/_14ssp"
+        android:paddingStart="@dimen/_13sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:textColor="@color/comments_text_color"
+        android:textSize="@dimen/_15ssp"
+        android:textIsSelectable="true"
+        app:fontFamily="@font/roboto"
+        app:collapse_lines="5"
         app:layout_constraintEnd_toEndOf="parent"
-        android:maxLength="500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postProfileImage" />
 
@@ -49,15 +52,17 @@
 
     <TextView
         android:id="@+id/postUserName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_7sdp"
+        android:maxLines="1"
         android:singleLine="true"
-        android:text=""
         android:textColor="@color/black"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="@+id/postProfileImage"
+        app:layout_constraintEnd_toStartOf="@+id/postDots"
         app:layout_constraintStart_toEndOf="@+id/postProfileImage"
         app:layout_constraintTop_toTopOf="@+id/postProfileImage"
         app:layout_constraintVertical_bias="0.060000002" />
@@ -89,15 +94,15 @@
         android:id="@+id/postProfession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_5sdp"
+        android:gravity="start"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp"
         android:singleLine="true"
         android:textSize="@dimen/_11ssp"
-        android:text=""
-        android:gravity="start"
-        android:paddingStart="@dimen/_2sdp"
-        android:drawableEnd="@drawable/ic_global2"
-        android:drawablePadding="@dimen/_5sdp"
         app:layout_constraintStart_toStartOf="@+id/postUserName"
-        app:layout_constraintTop_toBottomOf="@+id/postUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/postUserName"
+        app:drawableEndCompat="@drawable/ic_global2" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/postImage"

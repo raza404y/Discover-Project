@@ -166,7 +166,24 @@ public class upload_post extends AppCompatActivity {
                     .child("posts").child(auth.getUid())
                     .child(new Date().getTime()+"");
             if (urlPostImage==null){
-                Toast.makeText(upload_post.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                postModel model = new postModel();
+                model.setPostImage("");
+                model.setPostedBy(auth.getUid());
+                model.setPostAt(new Date().getTime());
+                model.setPostDescription(binding.postDescription.getText().toString().trim());
+
+                database.getReference().child("posts").push()
+                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(upload_post.this, "Posted Successfully", Toast.LENGTH_SHORT).show();
+                                binding.postDescription.setText("");
+                                startActivity(new Intent(getApplicationContext(),home.class));
+                                binding.postImageView.setVisibility(View.GONE);
+
+                                disableProgressBar();
+                            }
+                        });
                 disableProgressBar();
             }else {
 

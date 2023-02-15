@@ -2,9 +2,13 @@ package com.example.inshta.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.method.ScrollingMovementMethod;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,12 +54,17 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
         postModel model = postList.get(position);
         String textTimePost = TimeAgo.using(model.getPostAt());
 
-        Glide.with(context)
-                        .load(model.getPostImage())
-                                .placeholder(R.drawable.cover_placeholder)
-                                        .into(holder.binding.postImage);
+        if (model.getPostImage().isEmpty()){
+            holder.binding.postImage.setVisibility(View.INVISIBLE);
+        }else {
 
+            Glide.with(context)
+                    .load(model.getPostImage())
+                    .placeholder(R.drawable.cover_placeholder)
+                    .into(holder.binding.postImage);
+        }
 
+        holder.binding.postDescriptionHome.setMovementMethod(new ScrollingMovementMethod());
         holder.binding.postDescriptionHome.setText(model.getPostDescription());
         holder.binding.likesTV.setText(model.getPostLike() + "");
         holder.binding.commentsTV.setText(model.getCommentCount() + "");
@@ -160,6 +169,9 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.viewHolder> {
             context.startActivity(intent);
 
 
+        });
+        holder.binding.postDots.setOnClickListener(view -> {
+            Toast.makeText(context, "Feature will added soon..", Toast.LENGTH_SHORT).show();
         });
 
         holder.binding.postUserName.setOnClickListener(view -> {

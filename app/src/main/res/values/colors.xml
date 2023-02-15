@@ -24,6 +24,7 @@
     <color name="type_msg_color">#F0F0F0</color>
     <color name="secondary_text">#757575</color>
     <color name="sendBtnColor">#0084FF</color>
+    <color name="black2">#131418</color>
 
 
 </resources>
