@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_12sdp"
-    android:layout_gravity="center_horizontal"
+    android:padding="@dimen/_5sdp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/storyImageView"
-        android:layout_width="@dimen/_105sdp"
-        android:layout_height="@dimen/_125sdp"
+        android:layout_width="@dimen/_125sdp"
+        android:layout_height="@dimen/_170sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/cover_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -46,13 +47,16 @@
 
     <TextView
         android:id="@+id/storyName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_12sdp"
         android:fontFamily="@font/roboto_bold"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:singleLine="true"
         android:textColor="@color/white"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="@+id/storyImageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/storyProfileImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

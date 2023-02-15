@@ -70,9 +70,10 @@ public class uploadFragment extends Fragment {
 
         ArrayList<story> list = new ArrayList<>();
         storyAdapter adapter = new storyAdapter(list,getContext());
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2,LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
         binding.storyRecyclerView.setLayoutManager(layoutManager);
-        binding.storyRecyclerView.setNestedScrollingEnabled(false);
         binding.storyRecyclerView.setAdapter(adapter);
 
          enableProgressbar2();
