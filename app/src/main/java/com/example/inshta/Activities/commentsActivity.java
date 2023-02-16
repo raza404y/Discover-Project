@@ -83,7 +83,6 @@ public class commentsActivity extends AppCompatActivity {
                                         .load(post.getPostImage())
                                         .placeholder(R.drawable.cover_placeholder)
                                         .into(binding.postImage2);
-
                             }
                             binding.postDescription2.setText(post.getPostDescription());
                             binding.likesTV2.setText(post.getPostLike() + "");
