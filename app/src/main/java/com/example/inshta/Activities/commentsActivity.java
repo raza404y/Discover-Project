@@ -73,10 +73,17 @@ public class commentsActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
                             postModel post = snapshot.getValue(postModel.class);
-                            Glide.with(getApplicationContext())
-                                    .load(post.getPostImage())
-                                    .placeholder(R.drawable.cover_placeholder)
-                                    .into(binding.postImage2);
+                            if (post.getPostImage().isEmpty()){
+                                binding.postImage2.setVisibility(View.GONE);
+                                binding.profileImage2.setVisibility(View.GONE);
+                                binding.postUsername2.setVisibility(View.GONE);
+                            }else {
+
+                                Glide.with(getApplicationContext())
+                                        .load(post.getPostImage())
+                                        .placeholder(R.drawable.cover_placeholder)
+                                        .into(binding.postImage2);
+                            }
                             binding.postDescription2.setText(post.getPostDescription());
                             binding.likesTV2.setText(post.getPostLike() + "");
                             binding.commentsTV2.setText(post.getCommentCount() + "");

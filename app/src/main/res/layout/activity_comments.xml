@@ -39,19 +39,23 @@
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll">
 
-
-                <TextView
+                <net.expandable.ExpandableTextView
                     android:id="@+id/postDescription2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
                     android:fontFamily="@font/roboto"
-                    android:gravity="top|start"
-                    android:maxHeight="@dimen/_100sdp"
-                    android:paddingStart="@dimen/_12sdp"
-                    android:textColor="#131418"
+                    android:gravity="start"
+                    android:minHeight="48dp"
+                    android:padding="@dimen/_2sdp"
+                    android:paddingStart="@dimen/_13sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
                     android:textSize="@dimen/_14ssp"
+                    app:collapse_lines="5"
+                    app:fontFamily="@font/roboto"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
