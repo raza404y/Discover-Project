@@ -31,6 +31,7 @@ public class chats extends AppCompatActivity {
     ActivityChatsBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
+
     private int[] tabIcons = {
             R.drawable.ic_messenger,
             R.drawable.ic_people2};
