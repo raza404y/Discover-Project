@@ -143,6 +143,7 @@ public class messages extends AppCompatActivity {
         binding.chatrecyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
+        binding.chatrecyclerView.scrollToPosition(adapter.getItemCount());
         binding.chatrecyclerView.setLayoutManager(layoutManager);
 
         database.getReference()

@@ -65,9 +65,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:padding="@dimen/_3sdp"
-                android:text=""
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20ssp"
+                android:singleLine="true"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold"
                 diagonal:layout_constraintStart_toStartOf="@+id/profileViewUserprofile"
                 diagonal:layout_constraintTop_toBottomOf="@+id/profileViewUserprofile" />
@@ -75,8 +75,8 @@
 
             <ImageView
                 android:id="@+id/blueTick"
-                android:layout_width="@dimen/_17sdp"
-                android:layout_height="@dimen/_17sdp"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
                 android:src="@drawable/blue_tick"
                 android:visibility="gone"
                 android:layout_marginStart="@dimen/_3sdp"

@@ -163,7 +163,7 @@
                         android:layout_marginStart="@dimen/_12sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:src="@drawable/profile_placeholder"
-                        app:civ_border_color="@color/instalastclor"
+                        app:civ_border_color="@color/grey_lite"
                         app:civ_border_width="@dimen/_1sdp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
